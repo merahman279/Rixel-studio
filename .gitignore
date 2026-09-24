@@ -1,0 +1,15 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary and editor files
+*.tmp
+*.bak
+*.swp
+*~
+.vscode/
+.idea/
+
+# Archives (optional, if you want only web source files on git)
+# *.zip
