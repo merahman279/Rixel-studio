@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" style="scroll-behavior: smooth;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Rixel Studio — Brand Identity, Motion Graphics & Creative Direction</title>
+  <meta name="description" content="Official portfolio of Rixel Studio. Specializing in memorable brand identities, cinematic motion graphics, and high-impact visual design for startups, corporate brands, and global institutions.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  
+  <!-- Three.js CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#051424",
+            "surface-dim": "#051424",
+            "surface-bright": "#2c3a4c",
+            "surface-container-lowest": "#010f1f",
+            "surface-container-low": "#0d1c2d",
+            "surface-container": "#122131",
+            "surface-container-high": "#1c2b3c",
+            "surface-container-highest": "#273647",
+            "on-surface": "#d4e4fa",
+            "on-surface-variant": "#c3c6d7",
+            "outline": "#8d90a0",
+            "outline-variant": "#434655",
+            "primary": "#b4c5ff",
+            "primary-container": "#2563eb",
+            "on-primary": "#002a78",
+            "on-primary-container": "#eeefff",
+            "secondary": "#adc6ff",
+            "secondary-container": "#0566d9",
+            "on-secondary": "#002e6a",
+            "on-secondary-container": "#e6ecff",
+            "tertiary": "#2fd9f4",
+            "tertiary-container": "#007889",
+            "on-tertiary": "#00363e",
+            "on-tertiary-container": "#d2f6ff",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "on-error": "#690005"
+          },
+          fontFamily: {
+            "sora": ["Sora", "sans-serif"],
+            "inter": ["Inter", "sans-serif"],
+            "space": ["Space Grotesk", "sans-serif"]
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "safe-bottom": "env(safe-area-inset-bottom, 0px)",
+            "safe-top": "env(safe-area-inset-top, 0px)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #051424;
+        color: #d4e4fa;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #051424;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1c2b3c;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2563eb;
+    }
+    
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .pb-safe {
+      padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px);
+    }
+    .pt-safe {
+      padding-top: max(env(safe-area-inset-top, 0px), 12px);
+    }
+
+    /* Glow utilities */
+    .glow-cyan {
+      box-shadow: 0 0 25px rgba(47, 217, 244, 0.35);
+    }
+    .glow-blue {
+      box-shadow: 0 0 25px rgba(37, 99, 235, 0.45);
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-white min-h-screen flex flex-col relative pb-20 lg:pb-0">
+
+  <!-- ======================================================== -->
+  <!-- TOP NAVIGATION HEADER                                    -->
+  <!-- ======================================================== -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-[#051424]/85 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Name (Bigger Logo as requested) -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+        <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-primary-container via-tertiary to-secondary-container shadow-[0_0_20px_rgba(47,217,244,0.3)] group-hover:shadow-[0_0_28px_rgba(47,217,244,0.6)] group-hover:scale-105 transition-all duration-300">
+          <img src="logo.png" onerror="this.src='200 by 200.png'" alt="Rixel Studio" class="w-full h-full object-contain rounded-full bg-black">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-sora text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-tertiary transition-colors">
+            Rixel Studio
+          </span>
+          <span class="font-space text-[10px] sm:text-[11px] uppercase tracking-widest text-on-surface-variant font-medium">
+            Creative & Motion
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu Links -->
+      <nav class="hidden lg:flex items-center gap-8" id="desktop-nav">
+        <a href="#hero" class="nav-link font-space text-sm tracking-wide text-tertiary font-semibold transition-colors duration-200 hover:text-tertiary" data-target="hero">Home</a>
+        <a href="#portfolio" class="nav-link font-space text-sm tracking-wide text-on-surface-variant font-medium transition-colors duration-200 hover:text-on-surface" data-target="portfolio">Portfolio</a>
+        <a href="#services" class="nav-link font-space text-sm tracking-wide text-on-surface-variant font-medium transition-colors duration-200 hover:text-on-surface" data-target="services">Services</a>
+        <a href="#about" class="nav-link font-space text-sm tracking-wide text-on-surface-variant font-medium transition-colors duration-200 hover:text-on-surface" data-target="about">About</a>
+        <a href="#process" class="nav-link font-space text-sm tracking-wide text-on-surface-variant font-medium transition-colors duration-200 hover:text-on-surface" data-target="process">Process</a>
+        <a href="#faq" class="nav-link font-space text-sm tracking-wide text-on-surface-variant font-medium transition-colors duration-200 hover:text-on-surface" data-target="faq">FAQs</a>
+      </nav>
+
+      <!-- Desktop Right Action Buttons -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://wa.me/8801849697850?text=Hello%20Rixel%20Studio,%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-surface-container-high/80 text-on-surface hover:text-tertiary hover:bg-surface-variant transition-colors" title="Chat on WhatsApp">
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+        </a>
+        <a href="#hire" class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full font-space text-sm font-semibold text-white bg-gradient-to-r from-primary-container via-secondary-container to-tertiary-container shadow-[0_0_24px_rgba(37,99,235,0.45)] hover:shadow-[0_0_32px_rgba(47,217,244,0.6)] hover:scale-105 active:scale-95 transition-all duration-300">
+          <span>Hire Me</span>
+          <span class="material-symbols-outlined ml-1.5 text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="https://wa.me/8801849697850" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary hover:bg-surface-variant transition-colors">
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high/80 backdrop-blur-md text-on-surface hover:text-tertiary active:scale-90 transition-all">
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- MOBILE DRAWER MENU                                       -->
+  <!-- ======================================================== -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 hidden flex-col bg-[#051424]/95 backdrop-blur-2xl transition-all duration-300">
+    <div class="pt-safe px-6 h-20 flex items-center justify-between border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-primary-container to-tertiary">
+          <img src="logo.png" onerror="this.src='200 by 200.png'" alt="Rixel Studio Logo" class="w-full h-full object-contain rounded-full bg-black">
+        </div>
+        <span class="font-sora text-xl font-bold text-white">Rixel Studio</span>
+      </div>
+      <button id="mobile-drawer-close" aria-label="Close Menu" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-white bg-surface-container-high">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+    </div>
+
+    <nav class="flex-1 flex flex-col justify-between px-6 py-8 overflow-y-auto">
+      <div class="flex flex-col gap-2">
+        <a href="#hero" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-sora text-lg font-semibold text-tertiary bg-surface-container-high/50" data-target="hero">
+          <span>Home</span>
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </a>
+        <a href="#portfolio" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-sora text-lg font-semibold text-on-surface hover:bg-surface-container" data-target="portfolio">
+          <span>Portfolio Works</span>
+          <span class="material-symbols-outlined text-[20px] text-tertiary">arrow_forward</span>
+        </a>
+        <a href="#services" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-sora text-lg font-semibold text-on-surface hover:bg-surface-container" data-target="services">
+          <span>Services</span>
+          <span class="material-symbols-outlined text-[20px] text-tertiary">arrow_forward</span>
+        </a>
+        <a href="#about" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-sora text-lg font-semibold text-on-surface hover:bg-surface-container" data-target="about">
+          <span>About Studio</span>
+          <span class="material-symbols-outlined text-[20px] text-tertiary">arrow_forward</span>
+        </a>
+        <a href="#process" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-sora text-lg font-semibold text-on-surface hover:bg-surface-container" data-target="process">
+          <span>Process</span>
+          <span class="material-symbols-outlined text-[20px] text-tertiary">arrow_forward</span>
+        </a>
+        <a href="#faq" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-sora text-lg font-semibold text-on-surface hover:bg-surface-container" data-target="faq">
+          <span>Client FAQs</span>
+          <span class="material-symbols-outlined text-[20px] text-tertiary">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-4 pt-6 border-t border-white/10">
+        <a href="#hire" class="mobile-nav-link w-full h-13 py-3.5 rounded-full bg-gradient-to-r from-primary-container via-secondary-container to-tertiary-container flex items-center justify-center font-space font-semibold text-white shadow-[0_0_24px_rgba(37,99,235,0.45)] text-center" data-target="hire">
+          Hire Me — Start a Project
+        </a>
+        <div class="flex items-center justify-around text-on-surface-variant pt-2">
+          <a href="mailto:ourrixelstudio@gmail.com" class="flex items-center gap-1.5 text-sm hover:text-tertiary transition-colors">
+            <span class="material-symbols-outlined text-[20px]">mail</span>
+            <span>Email</span>
+          </a>
+          <a href="https://wa.me/8801849697850" class="flex items-center gap-1.5 text-sm text-tertiary font-semibold hover:underline">
+            <span class="material-symbols-outlined text-[20px]">chat</span>
+            <span>WhatsApp</span>
+          </a>
+          <a href="tel:+8801849697850" class="flex items-center gap-1.5 text-sm hover:text-tertiary transition-colors">
+            <span class="material-symbols-outlined text-[20px]">call</span>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MAIN CONTENT CONTAINER                                   -->
+  <!-- ======================================================== -->
+  <main class="w-full flex-1 pt-20">
+
+    <!-- ======================================================== -->
+    <!-- 1. HERO SECTION                                          -->
+    <!-- ======================================================== -->
+    <section class="relative w-full overflow-hidden bg-surface py-12 md:py-20 lg:py-24" id="hero">
+      <!-- Ambient Glows -->
+      <div class="pointer-events-none absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full bg-primary-container/20 blur-[130px]"></div>
+      <div class="pointer-events-none absolute top-1/3 -right-20 h-[400px] w-[400px] rounded-full bg-tertiary/15 blur-[120px]"></div>
+      <div class="pointer-events-none absolute inset-0 opacity-10" style="background-image: radial-gradient(rgba(180, 197, 255, 0.25) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Hero Left Column -->
+          <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
+            
+            <!-- Category Pill -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high/80 border border-white/10 backdrop-blur-md shadow-sm">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+              </span>
+              <span class="font-space text-xs uppercase tracking-widest text-tertiary font-semibold">
+                Graphic Design & Video Editing Studio
+              </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-sora text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15]">
+              Brand Identities That <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">Get Remembered.</span> Motion That Converts.
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="font-inter text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+              Freelance Graphic Designer & Video Editor with 4+ years crafting visual identities, high-impact social creatives, and cinematic motion for forward-thinking startups, corporate leaders, and global institutions.
+            </p>
+
+            <!-- Dual CTA Row -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto pt-2">
+              <a href="#hire" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-space text-sm font-semibold text-white bg-gradient-to-r from-primary-container to-secondary-container shadow-[0_0_24px_rgba(37,99,235,0.45)] hover:scale-105 active:scale-95 transition-all duration-300">
+                <span>Hire Me — Start a Project</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+              <a href="#portfolio" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-space text-sm font-semibold text-on-surface bg-surface-container-high/80 hover:bg-surface-container-highest transition-all duration-300">
+                <span>View Portfolio</span>
+                <span class="material-symbols-outlined text-[18px] text-tertiary">visibility</span>
+              </a>
+            </div>
+
+            <!-- Trust Badges Row -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 pt-3 text-on-surface-variant font-space text-xs sm:text-sm">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+                <span>4+ Years Industry Experience</span>
+              </div>
+              <span class="text-outline/40 hidden sm:inline">•</span>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-tertiary text-[18px]">domain</span>
+                <span>Corporate & Edu Clients</span>
+              </div>
+              <span class="text-outline/40 hidden sm:inline">•</span>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-tertiary text-[18px]">public</span>
+                <span>Bangladesh & Global Markets</span>
+              </div>
+            </div>
+
+            <!-- Floating SaaS Metrics Pill -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 p-3.5 px-5 rounded-2xl bg-surface-container/90 border border-white/5 backdrop-blur-md shadow-md">
+              <div class="flex items-center gap-1 text-tertiary">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <div class="h-4 w-px bg-surface-variant hidden sm:block"></div>
+              <span class="font-space text-xs sm:text-sm font-semibold text-white">98% Satisfaction</span>
+              <div class="h-4 w-px bg-surface-variant hidden sm:block"></div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-inter text-xs sm:text-sm">
+                <span class="material-symbols-outlined text-secondary text-[16px]">bolt</span>
+                <span>48h Quick Delivery Option</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Right Column (3D Interactive Spatial Canvas) -->
+          <div class="lg:col-span-5 relative flex items-center justify-center">
+            <div class="relative w-full aspect-square max-w-[460px] rounded-3xl bg-surface-container-low border border-white/10 shadow-2xl overflow-hidden flex items-center justify-center">
+              
+              <!-- 3D Three.js Container -->
+              <div id="threejs-container" class="w-full h-full relative z-10" style="cursor: grab;"></div>
+
+              <!-- Fallback Gradient Backdrop -->
+              <div class="absolute inset-0 z-0 bg-gradient-to-tr from-surface-container-lowest via-surface-container to-surface-container-high opacity-80 pointer-events-none"></div>
+              <div class="pointer-events-none absolute -bottom-10 -right-10 w-48 h-48 rounded-full bg-primary/20 blur-3xl"></div>
+
+              <!-- 3D Interactive Badge Overlay -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full bg-surface-container-lowest/80 border border-white/10 backdrop-blur-md shadow-md flex items-center gap-2 whitespace-nowrap pointer-events-none">
+                <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                <span class="font-space text-[11px] text-on-surface tracking-wider uppercase">Interactive 3D Motion • Move Cursor / Touch</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 2. PORTFOLIO SHOWCASE                                     -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface-container-lowest py-16 md:py-24 relative border-t border-white/5" id="portfolio">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-10">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="flex flex-col gap-2">
+            <div class="inline-flex items-center gap-1.5 text-tertiary font-space text-xs uppercase tracking-widest font-semibold">
+              <span class="material-symbols-outlined text-[16px]">work</span>
+              <span>SELECTED WORKS ARCHIVE</span>
+            </div>
+            <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight">
+              Curated Projects & Visual Craft
+            </h2>
+            <p class="font-inter text-sm sm:text-base text-on-surface-variant max-w-xl">
+              Explore high-performing brand identities, conversion-focused social campaigns, motion graphics, and full-fidelity video productions.
+            </p>
+          </div>
+
+          <!-- Filter Pills (Scrollable Rail on Mobile) -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 no-scrollbar" id="portfolio-filters">
+            <button class="portfolio-filter-btn px-4 py-2 rounded-full font-space text-xs tracking-wider uppercase whitespace-nowrap bg-primary-container text-white shadow-sm transition-all" data-filter="all">All Works (12)</button>
+            <button class="portfolio-filter-btn px-4 py-2 rounded-full font-space text-xs tracking-wider uppercase whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="brand">Brand Identity</button>
+            <button class="portfolio-filter-btn px-4 py-2 rounded-full font-space text-xs tracking-wider uppercase whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="social">Social Media</button>
+            <button class="portfolio-filter-btn px-4 py-2 rounded-full font-space text-xs tracking-wider uppercase whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="print">Print Design</button>
+            <button class="portfolio-filter-btn px-4 py-2 rounded-full font-space text-xs tracking-wider uppercase whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="motion">Motion Graphics</button>
+            <button class="portfolio-filter-btn px-4 py-2 rounded-full font-space text-xs tracking-wider uppercase whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="video">Video Editing</button>
+          </div>
+        </div>
+
+        <!-- 4-Column Responsive Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
+          
+          <!-- Project 1 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="brand" onclick="openLightbox('Apex Fintech — Brand System', 'Complete visual identity system including dynamic geometric typography, modern cyan-blue color palettes, and stationary mockups for an algorithmic finance startup.', 'Brand Identity', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGuPw76hSyLNtUvRpPh_V16QRSNFBu6EDAfNkZFhoY6ON6C7TozW3lVW87Xn1hnBinZh4CBcdgYaoGpDap5eBV4-eLUDbFFQCDeM-_y-v1dS63CtFQGJHF8v0T74Rzued9wqbp4wGtHhFWqZEum-n1HeN5Uz_94NTSlni4TXSA5ha_Cx5T2F9Q0F--B3-SUOFz3W8RZ525vpXiqlu_xAy6lh0659KP7r923ScUo-m-" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200'" alt="Apex Fintech Brand Identity">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Brand Identity</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Apex Fintech</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Geometric Visual System & Guidelines</p>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="social" onclick="openLightbox('Nova Energy Drinks', 'High-energy launch campaign assets, Instagram reels covers, 3D beverage poster mockups, and bold typographic ads.', 'Social Media', 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoqfGHYw5YoBhR0jQ7BYH73MlOfkD8jWoVnETGd4_ZbrjG-Mvb8wzBkqIRcKAFHJvtfo21uvPLPit5itKWTqQhVGYs9Ni7UOe_2PPgPnbnvhu2feot6wYi31txFRi0zvs_ivxXrPtSoGqj3F-WzzJJuljvWetjLg5l9MXfyFPP-D61H8dY9woeR89yQC39czh2UX65SpMm2YDPsquTqjSukY-cyMzW5-bUQMQMS5fL" onerror="this.src='https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1200'" alt="Nova Energy Drinks">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-tertiary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Social Media</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Nova Energy Drinks</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Omnichannel Launch Campaign</p>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="print" onclick="openLightbox('EduCorp Annual Summit', 'Print-ready annual report brochure, roll-up banners, badges, and keynote presentation guides in CMYK.', 'Print Design', 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN7pusnXW0lN20MluKcodrBjquk1a6_9HmPoWUAbLNeZ0KJlV2jrKQv1ODIp3x8C7rMxSq5p2L-Vm36Nd4WOYJu7jynbc79SoN0MH4SWfBntrzRbeaEvznuO5CLQhB0lDibV1HS9KQ_3k3V-JlJIbd6i0Vs34eBemfqLvRoNk6R7T8kcBGtUZqUl7KjiBRValPqNZHYZhWq4lUzY8OYvaKiZon7jT_aUOkhqjBSBvL" onerror="this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200'" alt="EduCorp Annual Summit">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-space text-[10px] uppercase font-semibold">Print Design</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">EduCorp Annual Summit</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Editorial Publication & Stage Print</p>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="motion" onclick="openLightbox('Pulse Fitness App', '3D motion teaser video for mobile app launch. Kinetic typography, 60fps UI transitions, and immersive sound design.', 'Motion Graphics', 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnNeIvjDzHroD3Ko_p79DMnPWx2WD6DD_kVbF-b3aUlwtR1O5WA_8jyYdvgFslvBEKg_NlKlub83v_eK0O0YX49fAR3RJxx3PWWNnI9VbfS4cN4EEWBxOakY_jjhPjlhhDcF5I8BD6DY30IsWs4irpq6-fNl4rH7Qf7kvODpXj363ULZRU3R9DXU-FoJj0kzj93ntjCQ3rAtQc20BOAIpf5fc8t0lUlZmt-ooBhl2T" onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200'" alt="Pulse Fitness App">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-secondary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Motion Graphics</span>
+              <span class="w-5 h-5 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary"><span class="material-symbols-outlined text-[13px]">play_arrow</span></span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Pulse Fitness App</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">3D Product Teaser & Explainer</p>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="brand" onclick="openLightbox('Zenith SaaS Launch', 'Full corporate brand design: vector icon marks, design tokens, UI style manual, and digital investor pitch decks.', 'Brand Identity', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRAQ4nCVj6n91itwsPLbnSckuf-GsllD6ykjAqyAVexswbC9AcPFozPuYqmdjp2kS48-DkCPAJabPuyyMAayi-uZb-xNyPc3-HzdTigU8U84qkW_f1Qb2-a6aB1X7uQx52GoJ1MhIyn7DQhccQa9qY0sypAEUlQcqZw05RUqv61nMpP97EbMW-D9gySBZWJUuayAnf7zml8ohQpueLmWkS3-idbiROnC9ioOk6avQV" onerror="this.src='https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200'" alt="Zenith SaaS">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Brand Identity</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Zenith SaaS</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Full Corporate Design System</p>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="video" onclick="openLightbox('Velocity Motors', 'Automotive commercial showcase. High dynamic range color grading, pacing cuts, cinematic drone stitching, and custom audio mixing.', 'Video Editing', 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKiN17MK9yFJHSTHzv7Px2a7Gc7P1me5AJsfx9rXQlJfnDeqNaDcv5HAEM_MZfP45TENHguu_o-Jq-HKTgCZo6TL9S41f3dS-om5wTvCcYm8mpvmMsfNi0PI3AS9hnroh1Cl-XRSoEPHxNlT_k78Dn_QRpRbC6KvSaTOvBnAkExeolt2cFySuZAnHlIm6IPzZrBn9kCtC-e0Lw2P0UiIigu9B0_h6Tq1LCq4Fj-Sd3" onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200'" alt="Velocity Motors">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-space text-[10px] uppercase font-semibold">Video Editing</span>
+              <span class="w-5 h-5 rounded-full bg-white text-surface-container-lowest flex items-center justify-center"><span class="material-symbols-outlined text-[13px]">play_arrow</span></span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Velocity Motors</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Cinematic Commercial Reel</p>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="brand" onclick="openLightbox('Hyperion AI', 'Dark mode brand guidelines, 3D holographic iconography, landing page illustrations, and visual guidelines.', 'Brand Identity', 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6CMbkugQbP5s5Av62dP2OBRaue4c7syjOUv3tI0BaIt5Zls7Y5IzqnBwgZEnHrvx7X6iyFuWp5dAEqCTNUweH6YFAt3RdF01OnBA3jL1VYAMFM-HNQ1AmiX37E_Hcf7MalOJgigDpr-mssF89f4vY3XUPjsMPLSgq9Vhv9Weh8R5kuIzQsFBBXmfvBBSY1mob83qnVxdGfPGEzEJbRaDoUa9450qGo-UXxOxPaoIo" onerror="this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200'" alt="Hyperion AI">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Brand Identity</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Hyperion AI</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Dark-Mode Visual Architecture</p>
+            </div>
+          </div>
+
+          <!-- Project 8 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="motion" onclick="openLightbox('CloudScale Tech Expo', 'Large format LED stage background loop, speaker bumpers, and animated countdown transitions.', 'Motion Graphics', 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVD9tq0PC-e0MoomBZrBr1H8HmAD06kr06bkXTQlHVrojwjNg1F7NjMBRwuYCdvdlOPSjUmgILABdY_Vs6ujFmf0yIWjr_E9ijIBP-8Qut-mbXDEaCkBuSDqpPBdAEBJKxFmA0PWz77miUOvhTRKncaGhvrRtMSVljdIXYNfh5LtWc5rVl92eWWbOoRoVFdLiyAfIFJ9Bzi9KumCBpjOdH9B0lW1GqU8i8PnWytzkv" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200'" alt="CloudScale Tech Expo">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-secondary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Motion Graphics</span>
+              <span class="w-5 h-5 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary"><span class="material-symbols-outlined text-[13px]">play_arrow</span></span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">CloudScale Tech Expo</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">LED Stage Motion Loops</p>
+            </div>
+          </div>
+
+          <!-- Project 9 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="print" onclick="openLightbox('Artisan Coffee Roasters', 'Specialty craft coffee foil bags, bespoke labels, and tactile outer carton packaging designed for eco-friendly print.', 'Print Design', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3lRYTX7FcywhcA26Z4Jx3aKBelE0mow-uB46GKFG6wqRg-1KMy2T0WqQDuhYq2MN2y7Qrzx6Uode-52tssCXyEUngvAYSP2MNnabZDl3GqgNcFImNNquPketnBdHK6-LpGOnVDef05VrBQhZGx62QDnjrylS0N4-ExC34CxVMrsFwV2RVar-2PJewKVLqf2WJD1XPVSHx-Q7J_ALq72fWHy-BkNEiVYo3k-oikWxL" onerror="this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1200'" alt="Artisan Coffee Roasters">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-space text-[10px] uppercase font-semibold">Print Design</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Artisan Coffee</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Luxury Packaging & Label System</p>
+            </div>
+          </div>
+
+          <!-- Project 10 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="social" onclick="openLightbox('TechSummit Dhaka', 'Official social media rollout: speaker announcement templates, interactive carousels, and sponsor banners.', 'Social Media', 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB965Az8M-6a7fk5jTtkI0tq6yDDJg53QLVtw6ylbPv-LkkIUPHfjtIhYbXbw8i_Pghj3lsTt1saKP_3e5p7RwybnDcI-yuI8UFqyOBeiPQyRFx8ltAiU9SnaiayQbQSiGAKvY5cBvpYYTkoID_Lsxd5PpS7zDilPrMioH6OVrNPif1hHqrCRQqModvTcoYQT8LVlOK7gHqjZARSC4959ShLaSt9qA8GqD9CMA1VxO3" onerror="this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200'" alt="TechSummit Dhaka">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-tertiary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Social Media</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">TechSummit Dhaka</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Keynote & Social Launch Kit</p>
+            </div>
+          </div>
+
+          <!-- Project 11 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="video" onclick="openLightbox('Orbit Robotics', 'Autonomous industrial hardware reveal video. Precision speed-ramps, macro lens grading, and spatial audio sync.', 'Video Editing', 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHwnWKr8BVDjZA5H3A_apqEv7vb131yXs9Xn48t0WrkyQBOxaBRpqmmAcKN79bym1sqg1NAUNDi8or9zOF8o-bS-DzCyF_2JTJuMPqUyyjIlRdaUGI-RcjX3wN44eaxIbLaU5kPlVlbBh4jGft-Kf4gu_H56KA_5O5JScFMviHOE4ho0m64QGMw45ZQlvit3TO-raGvf2A8QHwmhyOE_d6AY9RcpV-cSjJ_A2Ku6eD" onerror="this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200'" alt="Orbit Robotics">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4 flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-space text-[10px] uppercase font-semibold">Video Editing</span>
+              <span class="w-5 h-5 rounded-full bg-white text-surface-container-lowest flex items-center justify-center"><span class="material-symbols-outlined text-[13px]">play_arrow</span></span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Orbit Robotics</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Hardware Showcase & Sound Design</p>
+            </div>
+          </div>
+
+          <!-- Project 12 -->
+          <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="brand" onclick="openLightbox('Vanguard Capital', 'Executive brand identity, corporate stationary, foil-stamped presentation folders, and investor relations guidelines.', 'Brand Identity', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200')">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFGrIc_UfFQa0f7nEgEqXv3b3lBtytVzaiWhM8G1Dj9JC1vKtodVZj79cm4UeFCzqg9HFO7AgGreWxb6FnMvBmc2GLKUBHtgX_UEMYB-iShQ8hNIqLB9LS1jtxkw3YSbzQqYG4BCtsd2PR7gupX-QwA7fQSr2no-dWgF-_lXIHtMm75qy9QrFEWPkZwIXjceCS5pXPGYyc11zfNq8MsjxpfUgX3Ae5Bl4DGqqwJz7e" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200'" alt="Vanguard Capital">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute top-4 left-4">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">Brand Identity</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+              <h3 class="font-sora text-base sm:text-lg font-bold text-white">Vanguard Capital</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Executive Identity & Assets</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Portfolio Bottom Banner -->
+        <div class="flex justify-center pt-4">
+          <a href="#hire" class="inline-flex items-center gap-2 px-8 py-3 rounded-full font-space text-sm font-semibold text-on-surface bg-surface-container-high hover:bg-surface-variant border border-white/5 transition-all shadow-md group">
+            <span class="material-symbols-outlined text-tertiary text-[20px] group-hover:rotate-12 transition-transform">folder_open</span>
+            <span>Have a Custom Project in Mind? Let's Build It</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 3. SERVICES MATRIX                                        -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface py-16 md:py-24 relative" id="services">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-12">
+        
+        <!-- Section Title -->
+        <div class="flex flex-col items-center text-center gap-2 max-w-2xl mx-auto">
+          <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">SERVICES & CAPABILITIES</span>
+          <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight">High-Impact Creative Solutions</h2>
+          <p class="font-inter text-sm sm:text-base text-on-surface-variant">
+            End-to-end design craftsmanship and video production tailored for ambitious brands needing velocity, precision, and unforgettable aesthetics.
+          </p>
+        </div>
+
+        <!-- 5 Services Bento / Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Service 1: Brand Identity -->
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container/80 border border-white/5 backdrop-blur-md shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1">
+            <div class="flex flex-col gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-primary-container/20 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[32px]">auto_awesome</span>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h3 class="font-sora text-xl font-bold text-white">Brand Identity Design</h3>
+                <p class="font-inter text-sm text-on-surface-variant leading-relaxed">
+                  Full-spectrum visual systems built to outlast trends and command industry authority from day one.
+                </p>
+              </div>
+              <ul class="flex flex-col gap-2.5 pt-2">
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Complete Logo Suite & Sub-marks</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Color Palette & Typography Rules</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Brand Style Guide & Stationary Kit</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="#hire" onclick="selectService('Brand Identity')" class="w-full py-2.5 rounded-full inline-flex items-center justify-center gap-1.5 font-space text-xs sm:text-sm font-semibold bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-white transition-colors">
+                <span>Select Brand Identity</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 2: Social Media Creative -->
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container/80 border border-white/5 backdrop-blur-md shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1">
+            <div class="flex flex-col gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-tertiary/20 flex items-center justify-center text-tertiary">
+                <span class="material-symbols-outlined text-[32px]">campaign</span>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h3 class="font-sora text-xl font-bold text-white">Social Media Creative</h3>
+                <p class="font-inter text-sm text-on-surface-variant leading-relaxed">
+                  Scroll-stopping graphic assets and multi-slide carousels engineered for engagement and conversion ROAS.
+                </p>
+              </div>
+              <ul class="flex flex-col gap-2.5 pt-2">
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Performance Ad Banners (Meta/LinkedIn)</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Educational Multi-Slide Carousels</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Editable Figma / PSD Templates</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="#hire" onclick="selectService('Social Media')" class="w-full py-2.5 rounded-full inline-flex items-center justify-center gap-1.5 font-space text-xs sm:text-sm font-semibold bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-white transition-colors">
+                <span>Select Social Media</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 3: Print Material Design -->
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container/80 border border-white/5 backdrop-blur-md shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1">
+            <div class="flex flex-col gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-secondary-container/20 flex items-center justify-center text-secondary">
+                <span class="material-symbols-outlined text-[32px]">print</span>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h3 class="font-sora text-xl font-bold text-white">Print Material Design</h3>
+                <p class="font-inter text-sm text-on-surface-variant leading-relaxed">
+                  Tactile print deliverables prepared with zero bleed defects and flawless CMYK color profiling for press.
+                </p>
+              </div>
+              <ul class="flex flex-col gap-2.5 pt-2">
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Brochures, Flyers & Reports</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Roll-up Banners & Stage Backdrops</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Packaging Dielines & Labels</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="#hire" onclick="selectService('Print Design')" class="w-full py-2.5 rounded-full inline-flex items-center justify-center gap-1.5 font-space text-xs sm:text-sm font-semibold bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-white transition-colors">
+                <span>Select Print Design</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 4: Motion Graphics -->
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container/80 border border-white/5 backdrop-blur-md shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1">
+            <div class="flex flex-col gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+                <span class="material-symbols-outlined text-[32px]">animation</span>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h3 class="font-sora text-xl font-bold text-white">Motion Graphics</h3>
+                <p class="font-inter text-sm text-on-surface-variant leading-relaxed">
+                  Fluid kinetic animations, animated logos, and explainer sequences that simplify intricate value propositions.
+                </p>
+              </div>
+              <ul class="flex flex-col gap-2.5 pt-2">
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Logo Reveals & Bumpers</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Product UI Feature Walkthroughs</span>
+                </li>
+                <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                  <span>Kinetic Typography & Lottie Files</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="#hire" onclick="selectService('Motion Graphics')" class="w-full py-2.5 rounded-full inline-flex items-center justify-center gap-1.5 font-space text-xs sm:text-sm font-semibold bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-white transition-colors">
+                <span>Select Motion Graphics</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 5: Video Editing -->
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container/80 border border-white/5 backdrop-blur-md shadow-lg transition-all duration-300 hover:bg-surface-container hover:-translate-y-1 md:col-span-2 lg:col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-primary-container/20 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[32px]">movie_edit</span>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <h3 class="font-sora text-xl font-bold text-white">High-End Video Editing</h3>
+                  <p class="font-inter text-sm text-on-surface-variant leading-relaxed">
+                    Broadcast-caliber editing, color grading, and acoustic sound design that keep viewer retention at the highest peak.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col justify-center">
+                <ul class="flex flex-col gap-2.5">
+                  <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                    <span>Fast-Paced YouTube, Reels & TikTok Formats</span>
+                  </li>
+                  <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                    <span>Cinematic Rec.709 & Log Color Grading</span>
+                  </li>
+                  <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                    <span>Corporate Interviews & Highlights</span>
+                  </li>
+                  <li class="flex items-center gap-2 font-inter text-xs sm:text-sm text-on-surface">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                    <span>Sound Effects & Audio Isolation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="pt-6 flex justify-end">
+              <a href="#hire" onclick="selectService('Video Editing')" class="w-full md:w-auto px-8 py-2.5 rounded-full inline-flex items-center justify-center gap-1.5 font-space text-xs sm:text-sm font-semibold bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-white transition-colors">
+                <span>Select Video Editing</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 4. ABOUT & FOUNDER EXPERTISE                             -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface-container-lowest py-16 md:py-24 relative border-t border-white/5" id="about">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          
+          <!-- Founder Studio Image -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-[400px]">
+              <div class="absolute -inset-2 bg-gradient-to-r from-primary via-tertiary to-secondary opacity-30 blur-2xl rounded-3xl"></div>
+              <div class="relative rounded-3xl overflow-hidden bg-surface-container border border-white/10 shadow-2xl">
+                <img class="w-full h-[420px] sm:h-[480px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZI-bkAJSgig4RUTgExitxh5DIuwkYDHWV1m7y9UjXbs8yiBh0AuyUEGOrSr2B8rLHogm7DhtSzeah2rN3RbzE3GxOewUCzCiq6rkt-V-QbMvmy764gFQkcn6lAbRgesSR7Ql7pETYOWO4VfpY1T11m12myzfS3UraWEnNgdw_9DyIHO1BKbLbVyYyhy6AgVX7rk01CW6x9mu2g710RKxHpeR26N6HPu-HIm_oWzwqhJ89ZplssBijInKjK21koHsdENnq6lNN5N51qtI" alt="Rixel Studio Lead Designer">
+                
+                <!-- Status Badge -->
+                <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-surface-container-lowest/80 border border-white/10 backdrop-blur-md shadow-md flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                  <span class="font-space text-xs text-white">Available for New Projects</span>
+                </div>
+                
+                <!-- Experience Badge -->
+                <div class="absolute bottom-4 right-4 px-4 py-2 rounded-2xl bg-surface-container-high/90 border border-white/10 backdrop-blur-md shadow-lg flex items-center gap-2">
+                  <span class="material-symbols-outlined text-tertiary text-[20px]">military_tech</span>
+                  <span class="font-space text-xs sm:text-sm font-semibold text-white">4+ Years Practice</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative Content -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">MEET THE STUDIO</span>
+              <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+                Bridging Regional Nuance with Global Design Standards
+              </h2>
+            </div>
+            
+            <p class="font-inter text-sm sm:text-base text-on-surface-variant leading-relaxed">
+              Based in Dhaka and operating across international time zones, I lead Rixel Studio as an agile creative partner. Over four intense years, I have navigated brand launches, corporate communications revamps, and fast-moving social video campaigns.
+            </p>
+            <p class="font-inter text-sm sm:text-base text-on-surface-variant leading-relaxed">
+              My core philosophy revolves around functional restraint: design must solve a commercial obstacle before it impresses visually. By combining deep contextual market knowledge with world-class digital aesthetics, I ensure your brand commands respect and attention.
+            </p>
+
+            <!-- 4 Stats Counters Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+              <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
+                <span class="font-sora text-3xl sm:text-4xl text-primary font-bold">4+</span>
+                <span class="font-inter text-xs text-on-surface-variant mt-1">Years Active</span>
+              </div>
+              <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
+                <span class="font-sora text-3xl sm:text-4xl text-tertiary font-bold">120+</span>
+                <span class="font-inter text-xs text-on-surface-variant mt-1">Completed Works</span>
+              </div>
+              <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
+                <span class="font-sora text-3xl sm:text-4xl text-secondary font-bold">45+</span>
+                <span class="font-inter text-xs text-on-surface-variant mt-1">Corporate Clients</span>
+              </div>
+              <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
+                <span class="font-sora text-3xl sm:text-4xl text-white font-bold">99%</span>
+                <span class="font-inter text-xs text-on-surface-variant mt-1">On-Time Delivery</span>
+              </div>
+            </div>
+
+            <!-- Software Stack -->
+            <div class="flex flex-col gap-2 pt-2">
+              <span class="font-space text-xs uppercase text-outline tracking-wider font-semibold">Production Hardware & Tool Stack</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-white/5 font-space text-xs text-white">Adobe Photoshop</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-white/5 font-space text-xs text-white">Adobe Illustrator</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-white/5 font-space text-xs text-white">After Effects</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-white/5 font-space text-xs text-white">Premiere Pro</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-white/5 font-space text-xs text-white">Figma</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-white/5 font-space text-xs text-white">Blender 3D</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 5. WORKFLOW & PROCESS                                     -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface py-16 md:py-24 relative" id="process">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-12">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center gap-2 max-w-2xl mx-auto">
+          <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">COLLABORATION PROTOCOL</span>
+          <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight">From Brief to Final Render</h2>
+          <p class="font-inter text-sm sm:text-base text-on-surface-variant">
+            A transparent, frictionless 4-phase delivery system ensuring zero surprises and pixel-perfect deliverables.
+          </p>
+        </div>
+
+        <!-- 4-Step Timeline Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="flex flex-col p-6 rounded-2xl bg-surface-container-low border border-white/5 shadow-md relative">
+            <span class="font-sora text-4xl text-surface-container-highest font-extrabold opacity-40">01</span>
+            <div class="flex flex-col gap-2 mt-2">
+              <h3 class="font-sora text-lg font-bold text-white">Discovery & Brief</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Deep alignment on brand objectives, competitor benchmarks, audience psychology, and technical deliverables.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col p-6 rounded-2xl bg-surface-container-low border border-white/5 shadow-md relative">
+            <span class="font-sora text-4xl text-surface-container-highest font-extrabold opacity-40">02</span>
+            <div class="flex flex-col gap-2 mt-2">
+              <h3 class="font-sora text-lg font-bold text-white">Concepts & Moodboards</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Visual mood exploration, stylistic references, color architecture, and initial motion storyboard frames for signoff.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col p-6 rounded-2xl bg-surface-container-low border border-white/5 shadow-md relative">
+            <span class="font-sora text-4xl text-surface-container-highest font-extrabold opacity-40">03</span>
+            <div class="flex flex-col gap-2 mt-2">
+              <h3 class="font-sora text-lg font-bold text-white">Craft & Polish</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                High-fidelity execution across vector paths, 4K rendering pipelines, typographic balance, and kinetic pacing.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col p-6 rounded-2xl bg-surface-container-low border border-white/5 shadow-md relative">
+            <span class="font-sora text-4xl text-surface-container-highest font-extrabold opacity-40">04</span>
+            <div class="flex flex-col gap-2 mt-2">
+              <h3 class="font-sora text-lg font-bold text-white">Delivery & Source Files</h3>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Full handoff of native source files (AI, PSD, AE, PR), CMYK print formats, WebGL exports, and usage guides.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Values Banner -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-surface-container border border-white/5 shadow-xl">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-[24px]">speed</span>
+                <span class="font-space text-sm font-semibold text-white">24-48h Sprints</span>
+              </div>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Rapid turnaround capability for urgent commercial cycles and sudden campaign deadlines.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-[24px]">published_with_changes</span>
+                <span class="font-space text-sm font-semibold text-white">Dedicated Revisions</span>
+              </div>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Iterative review sessions until every edge, frame, and glyph satisfies your exact vision.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-[24px]">language</span>
+                <span class="font-space text-sm font-semibold text-white">Global & Local Reach</span>
+              </div>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Deep cultural literacy in South Asian markets fused with Western minimalist design systems.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-[24px]">lock</span>
+                <span class="font-space text-sm font-semibold text-white">Confidentiality (NDA)</span>
+              </div>
+              <p class="font-inter text-xs sm:text-sm text-on-surface-variant">Complete intellectual property assignment upon final invoice with strict NDA compliance.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 6. ENDORSEMENTS & TESTIMONIALS                           -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface-container-lowest py-16 md:py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-12">
+        <div class="flex flex-col items-center text-center gap-2 max-w-2xl mx-auto">
+          <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">ENDORSEMENTS</span>
+          <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight">Trusted by Founders & Directors</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container border border-white/5 shadow-md">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-1 text-tertiary">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="font-inter text-sm text-on-surface leading-relaxed">
+                "Rixel Studio transformed our corporate deck and re-edited our keynote video under an impossible 48-hour deadline. The motion polish directly helped us close our seed financing."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+              <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold font-sora">TH</div>
+              <div class="flex flex-col">
+                <span class="font-sora text-sm font-semibold text-white">Tanzim Hasan</span>
+                <span class="font-inter text-xs text-on-surface-variant">Founder, Apex Next Venture</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container border border-white/5 shadow-md">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-1 text-tertiary">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="font-inter text-sm text-on-surface leading-relaxed">
+                "Rarely do you find a creative who grasps both print pre-press specifics and modern After Effects motion. Rixel delivered our annual university summit collateral with flawless accuracy."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+              <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-white font-bold font-sora">SR</div>
+              <div class="flex flex-col">
+                <span class="font-sora text-sm font-semibold text-white">Syeda Rubaiya</span>
+                <span class="font-inter text-xs text-on-surface-variant">Communications Lead, EduCorp Dhaka</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-surface-container border border-white/5 shadow-md">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-1 text-tertiary">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="font-inter text-sm text-on-surface leading-relaxed">
+                "The social media creative package produced for Nova Drinks gave us a 3.4x spike in ad engagement. The kinetic aesthetic is genuinely international grade."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+              <div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-white font-bold font-sora">MK</div>
+              <div class="flex flex-col">
+                <span class="font-sora text-sm font-semibold text-white">Marcus K.</span>
+                <span class="font-inter text-xs text-on-surface-variant">Brand Manager, Nova Global</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 7. FREQUENTLY ASKED QUESTIONS                            -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface py-16 md:py-24 relative" id="faq">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-10">
+        <div class="flex flex-col items-center text-center gap-2">
+          <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">FAQS</span>
+          <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+          <p class="font-inter text-sm sm:text-base text-on-surface-variant">Clear answers regarding contracts, timelines, source files, and payments.</p>
+        </div>
+
+        <div class="flex flex-col gap-3" id="faq-accordion">
+          
+          <div class="faq-item rounded-2xl bg-surface-container border border-white/5 overflow-hidden shadow-sm">
+            <button class="faq-btn w-full p-5 sm:p-6 flex items-center justify-between text-left text-white font-sora text-base sm:text-lg font-semibold hover:text-tertiary transition-colors">
+              <span>What is your typical project turnaround time?</span>
+              <span class="material-symbols-outlined faq-icon text-tertiary transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="faq-content hidden px-5 sm:px-6 pb-6 text-on-surface-variant font-inter text-xs sm:text-sm leading-relaxed">
+              Turnaround depends on project scope. Brand identity concepts are delivered within 3 to 5 business days. Social media ad packs take 48 to 72 hours. Video edits and complex motion graphics typically require 4 to 7 business days. Rush delivery (24-48 hours) is available upon request.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-2xl bg-surface-container border border-white/5 overflow-hidden shadow-sm">
+            <button class="faq-btn w-full p-5 sm:p-6 flex items-center justify-between text-left text-white font-sora text-base sm:text-lg font-semibold hover:text-tertiary transition-colors">
+              <span>How do you handle revisions?</span>
+              <span class="material-symbols-outlined faq-icon text-tertiary transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="faq-content hidden px-5 sm:px-6 pb-6 text-on-surface-variant font-inter text-xs sm:text-sm leading-relaxed">
+              I prioritize 100% client satisfaction through structured feedback loops. Every project includes dedicated iterative revision cycles where we fine-tune colors, fonts, timing, and micro-details until the work is flawless.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-2xl bg-surface-container border border-white/5 overflow-hidden shadow-sm">
+            <button class="faq-btn w-full p-5 sm:p-6 flex items-center justify-between text-left text-white font-sora text-base sm:text-lg font-semibold hover:text-tertiary transition-colors">
+              <span>What source formats and file assets do I receive?</span>
+              <span class="material-symbols-outlined faq-icon text-tertiary transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="faq-content hidden px-5 sm:px-6 pb-6 text-on-surface-variant font-inter text-xs sm:text-sm leading-relaxed">
+              You receive complete, unlocked source files: Adobe Illustrator (.AI, .EPS), Photoshop (.PSD), After Effects (.AEP), Premiere Pro (.PRPROJ), and Figma links. Exports include print-ready CMYK PDFs, high-res PNG/SVG web assets, and 4K ProRes/MP4 video renders.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-2xl bg-surface-container border border-white/5 overflow-hidden shadow-sm">
+            <button class="faq-btn w-full p-5 sm:p-6 flex items-center justify-between text-left text-white font-sora text-base sm:text-lg font-semibold hover:text-tertiary transition-colors">
+              <span>What payment methods and currencies do you accept?</span>
+              <span class="material-symbols-outlined faq-icon text-tertiary transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="faq-content hidden px-5 sm:px-6 pb-6 text-on-surface-variant font-inter text-xs sm:text-sm leading-relaxed">
+              For Bangladeshi clients, payments are accepted in BDT (৳) via bKash, Nagad, and direct local Bank Transfers. For international partners, payments are processed in USD ($) via Payoneer, Wise, and International Wire Transfer. A 50% deposit begins the project.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-2xl bg-surface-container border border-white/5 overflow-hidden shadow-sm">
+            <button class="faq-btn w-full p-5 sm:p-6 flex items-center justify-between text-left text-white font-sora text-base sm:text-lg font-semibold hover:text-tertiary transition-colors">
+              <span>Can we sign an NDA before sharing confidential material?</span>
+              <span class="material-symbols-outlined faq-icon text-tertiary transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="faq-content hidden px-5 sm:px-6 pb-6 text-on-surface-variant font-inter text-xs sm:text-sm leading-relaxed">
+              Yes, absolutely. I respect intellectual property and trade secrets. I routinely execute mutual non-disclosure agreements before project discovery or reviewing proprietary footage and business plans.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 8. PROJECT REQUIREMENT INTAKE FORM                       -->
+    <!-- ======================================================== -->
+    <section class="w-full bg-surface-container-lowest py-16 md:py-24 relative border-t border-white/5" id="hire">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-12">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center gap-2 max-w-2xl mx-auto">
+          <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">START A CONVERSATION</span>
+          <h2 class="font-sora text-2xl sm:text-4xl font-bold text-white tracking-tight">Tell Me About Your Project</h2>
+          <p class="font-inter text-sm sm:text-base text-on-surface-variant">
+            Complete the requirement intake below or connect immediately via WhatsApp for same-day kickoff.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Intake Form (Col-Span 7) -->
+          <div class="lg:col-span-7 p-6 sm:p-10 rounded-3xl bg-surface-container border border-white/10 shadow-xl">
+            <form class="flex flex-col gap-5" id="project-intake-form" onsubmit="handleFormSubmit(event)">
+              
+              <!-- Contact Name & Email -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Full Name *</label>
+                  <input type="text" id="form-name" placeholder="John Doe" required class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm placeholder:text-outline focus:outline-none focus:border-tertiary shadow-sm transition-colors">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Work Email *</label>
+                  <input type="email" id="form-email" placeholder="john@company.com" required class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm placeholder:text-outline focus:outline-none focus:border-tertiary shadow-sm transition-colors">
+                </div>
+              </div>
+
+              <!-- Phone & Company -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Phone / WhatsApp *</label>
+                  <input type="tel" id="form-phone" placeholder="+880 18XX-XXXXXX" required class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm placeholder:text-outline focus:outline-none focus:border-tertiary shadow-sm transition-colors">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Brand / Company Name</label>
+                  <input type="text" id="form-company" placeholder="e.g. Apex Next Inc." class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm placeholder:text-outline focus:outline-none focus:border-tertiary shadow-sm transition-colors">
+                </div>
+              </div>
+
+              <!-- Service Selection Multi-Chips -->
+              <div class="flex flex-col gap-2">
+                <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Services Required (Select all that apply) *</label>
+                <div class="flex flex-wrap gap-2" id="service-chip-container">
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="services" value="Brand Identity" class="service-checkbox hidden peer">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-white/10 text-on-surface-variant font-space text-xs peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">Brand Identity</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="services" value="Social Media" class="service-checkbox hidden peer">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-white/10 text-on-surface-variant font-space text-xs peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">Social Media</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="services" value="Print Design" class="service-checkbox hidden peer">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-white/10 text-on-surface-variant font-space text-xs peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">Print Design</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="services" value="Motion Graphics" class="service-checkbox hidden peer">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-white/10 text-on-surface-variant font-space text-xs peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">Motion Graphics</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="services" value="Video Editing" class="service-checkbox hidden peer">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-surface-container-lowest border border-white/10 text-on-surface-variant font-space text-xs peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">Video Editing</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Budget Range with Currency Toggle -->
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Estimated Budget</label>
+                  <div class="flex items-center p-0.5 rounded-full bg-surface-container-lowest border border-white/10">
+                    <button type="button" id="curr-bdt" onclick="setCurrency('BDT')" class="px-3 py-0.5 rounded-full font-space text-xs text-on-surface-variant transition-all">BDT (৳)</button>
+                    <button type="button" id="curr-usd" onclick="setCurrency('USD')" class="px-3 py-0.5 rounded-full font-space text-xs bg-primary-container text-white font-semibold transition-all">USD ($)</button>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="budget-tiers">
+                  <!-- Dynamically populated via JS -->
+                </div>
+              </div>
+
+              <!-- Project Scope Details -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Project Scope & Objectives *</label>
+                <textarea id="form-details" required rows="4" placeholder="Briefly describe your vision, deliverables, reference styles, and goals..." class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm placeholder:text-outline focus:outline-none focus:border-tertiary shadow-sm transition-colors"></textarea>
+              </div>
+
+              <!-- Deadline & References -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Target Deadline</label>
+                  <input type="date" id="form-deadline" class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm focus:outline-none focus:border-tertiary shadow-sm transition-colors">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Reference Link / Drive URL</label>
+                  <input type="url" id="form-reference" placeholder="https://drive.google.com/..." class="px-4 py-3 rounded-xl bg-surface-container-lowest border border-white/10 text-white font-inter text-sm placeholder:text-outline focus:outline-none focus:border-tertiary shadow-sm transition-colors">
+                </div>
+              </div>
+
+              <!-- Submit Buttons -->
+              <div class="pt-2 flex flex-col gap-3">
+                <button type="submit" id="submit-btn" class="w-full py-4 rounded-full font-space text-sm font-semibold text-white bg-gradient-to-r from-primary-container via-secondary-container to-tertiary-container shadow-[0_0_24px_rgba(37,99,235,0.45)] hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                  <span>Send Project Request</span>
+                  <span class="material-symbols-outlined text-[20px]">send</span>
+                </button>
+                <p id="form-feedback" class="hidden text-center font-inter text-xs"></p>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Direct Contact Card (Col-Span 5) -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container border border-white/10 shadow-xl flex flex-col gap-6">
+              
+              <div class="flex flex-col gap-1">
+                <span class="font-space text-xs font-semibold text-tertiary uppercase tracking-widest">PREFER INSTANT CHAT?</span>
+                <h3 class="font-sora text-xl font-bold text-white">Direct Studio Access</h3>
+                <p class="font-inter text-sm text-on-surface-variant">
+                  Skip the form and discuss your project timeline immediately on WhatsApp or email.
+                </p>
+              </div>
+
+              <!-- WhatsApp Instant Button -->
+              <a href="https://wa.me/8801849697850?text=Hello%20Rixel%20Studio,%20I'm%20ready%20to%20discuss%20a%20design/video%20project." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-full font-space text-sm font-bold text-on-tertiary bg-tertiary shadow-[0_0_20px_rgba(47,217,244,0.4)] hover:shadow-[0_0_30px_rgba(47,217,244,0.7)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[22px]">chat</span>
+                <span>Chat on WhatsApp (+880 1849-697850)</span>
+              </a>
+
+              <!-- Details Rows -->
+              <div class="flex flex-col gap-4 pt-2 border-t border-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">mail</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="font-space text-[11px] uppercase text-outline">Official Studio Mailbox</span>
+                    <a href="mailto:ourrixelstudio@gmail.com" class="font-inter text-sm text-white hover:text-tertiary transition-colors break-all">
+                      ourrixelstudio@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">schedule</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="font-space text-[11px] uppercase text-outline">Active Response Guarantee</span>
+                    <span class="font-inter text-sm text-white">Under 2 hours response time</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">map</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="font-space text-[11px] uppercase text-outline">Headquarters</span>
+                    <span class="font-inter text-sm text-white">Dhaka, Bangladesh • Global Remote</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Onboarding Checklist -->
+            <div class="p-6 rounded-2xl bg-surface-container border border-white/5 shadow-md flex flex-col gap-2">
+              <span class="font-sora text-sm font-semibold text-white">Client Onboarding Checklist</span>
+              <ul class="flex flex-col gap-2 pt-1 text-on-surface-variant font-inter text-xs">
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+                  <span>Immediate brief review & scope estimation</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+                  <span>Milestone breakdown & clear delivery dates</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+                  <span>Transparent fixed pricing (No surprise invoices)</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- LIGHTBOX MODAL                                           -->
+  <!-- ======================================================== -->
+  <div id="portfolio-lightbox" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 lg:p-12">
+    <div class="relative w-full max-w-4xl bg-surface-container border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-surface-container-lowest/80 text-white flex items-center justify-center hover:bg-surface-variant transition-colors" aria-label="Close Lightbox">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+
+      <div class="w-full bg-surface-container-lowest aspect-video relative flex items-center justify-center overflow-hidden">
+        <img id="lightbox-img" src="" alt="Project Image" class="w-full h-full object-contain">
+        <div id="lightbox-badge" class="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary-container text-white font-space text-xs uppercase font-semibold">Category</div>
+      </div>
+
+      <div class="p-6 flex flex-col gap-2 overflow-y-auto">
+        <h3 id="lightbox-title" class="font-sora text-xl font-bold text-white">Project Title</h3>
+        <p id="lightbox-desc" class="font-inter text-sm text-on-surface-variant leading-relaxed">Full project description.</p>
+        <div class="pt-2 flex justify-end">
+          <a href="#hire" onclick="closeLightbox()" class="px-6 py-2 rounded-full bg-primary-container text-white font-space text-xs sm:text-sm font-semibold hover:bg-secondary-container transition-colors">
+            Request Similar Project
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- COMPREHENSIVE FOOTER                                     -->
+  <!-- ======================================================== -->
+  <footer class="w-full bg-[#010f1f] border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/5">
+        
+        <!-- Left Brand Column with Prominent Logo -->
+        <div class="lg:col-span-5 flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-14 h-14 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-primary-container via-tertiary to-secondary-container shadow-[0_0_20px_rgba(47,217,244,0.3)]">
+              <img src="logo.png" onerror="this.src='200 by 200.png'" alt="Rixel Studio" class="w-full h-full object-contain rounded-full bg-black">
+            </div>
+            <div class="flex flex-col">
+              <span class="font-sora text-xl font-bold text-white tracking-tight">Rixel Studio</span>
+              <span class="font-space text-[10px] uppercase tracking-wider text-tertiary">Digital & Motion Direction</span>
+            </div>
+          </div>
+          <p class="font-inter text-xs sm:text-sm text-on-surface-variant max-w-sm leading-relaxed">
+            High-performance creative engineering, immersive spatial digital artifacts, and luminescent brand identities for category-defining platforms.
+          </p>
+          <div class="flex items-center gap-2 pt-2">
+            <a href="https://wa.me/8801849697850" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-tertiary hover:bg-surface-variant transition-all" aria-label="WhatsApp">
+              <span class="material-symbols-outlined text-[20px]">chat</span>
+            </a>
+            <a href="mailto:ourrixelstudio@gmail.com" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-tertiary hover:bg-surface-variant transition-all" aria-label="Email">
+              <span class="material-symbols-outlined text-[20px]">mail</span>
+            </a>
+            <a href="tel:+8801849697850" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-tertiary hover:bg-surface-variant transition-all" aria-label="Phone">
+              <span class="material-symbols-outlined text-[20px]">call</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="lg:col-span-3 flex flex-col gap-3">
+          <span class="font-space text-xs uppercase tracking-wider text-white font-semibold">Navigation</span>
+          <div class="flex flex-col gap-2 font-inter text-xs sm:text-sm">
+            <a href="#hero" class="text-on-surface-variant hover:text-tertiary transition-colors">Home & Showcase</a>
+            <a href="#portfolio" class="text-on-surface-variant hover:text-tertiary transition-colors">Selected Portfolio</a>
+            <a href="#services" class="text-on-surface-variant hover:text-tertiary transition-colors">Creative Capabilities</a>
+            <a href="#about" class="text-on-surface-variant hover:text-tertiary transition-colors">Studio Philosophy</a>
+            <a href="#process" class="text-on-surface-variant hover:text-tertiary transition-colors">Development Process</a>
+            <a href="#faq" class="text-on-surface-variant hover:text-tertiary transition-colors">Client FAQs</a>
+          </div>
+        </div>
+
+        <!-- Direct Contact -->
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <span class="font-space text-xs uppercase tracking-wider text-white font-semibold">Direct Contact</span>
+          <div class="flex flex-col gap-2.5 font-inter text-xs sm:text-sm">
+            <a href="mailto:ourrixelstudio@gmail.com" class="flex items-center gap-2 text-on-surface-variant hover:text-tertiary transition-colors break-all">
+              <span class="material-symbols-outlined text-tertiary text-[18px]">mail</span>
+              <span>ourrixelstudio@gmail.com</span>
+            </a>
+            <a href="tel:+8801849697850" class="flex items-center gap-2 text-on-surface-variant hover:text-tertiary transition-colors">
+              <span class="material-symbols-outlined text-tertiary text-[18px]">call</span>
+              <span>+880 1849-697850</span>
+            </a>
+            <a href="https://wa.me/8801849697850" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-on-surface-variant hover:text-tertiary transition-colors">
+              <span class="material-symbols-outlined text-tertiary text-[18px]">chat</span>
+              <span>WhatsApp: +880 1849-697850</span>
+            </a>
+            <div class="flex items-center gap-2 text-outline pt-2">
+              <span class="material-symbols-outlined text-[18px]">location_on</span>
+              <span>Dhaka, Bangladesh • Serving Worldwide</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs font-inter text-outline">
+        <p>© 2025 Rixel Studio. All rights reserved. Crafted for digital immersion.</p>
+        <p class="font-space uppercase tracking-widest text-[11px]">Dhaka • Worldwide</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- FLOATING QUICK WHATSAPP BUTTON                           -->
+  <!-- ======================================================== -->
+  <aside class="fixed bottom-24 lg:bottom-8 right-5 z-40">
+    <a href="https://wa.me/8801849697850" target="_blank" rel="noopener noreferrer" aria-label="Direct WhatsApp Chat" class="relative group flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-tertiary text-on-tertiary shadow-[0_0_24px_rgba(47,217,244,0.45)] hover:shadow-[0_0_36px_rgba(47,217,244,0.8)] transition-all duration-300 hover:scale-110 active:scale-95">
+      <span class="absolute inset-0 rounded-full bg-tertiary animate-ping opacity-35 pointer-events-none"></span>
+      <span class="material-symbols-outlined text-[28px] relative z-10">chat</span>
+    </a>
+  </aside>
+
+  <!-- ======================================================== -->
+  <!-- MOBILE BOTTOM APP NAVIGATION BAR                         -->
+  <!-- ======================================================== -->
+  <nav class="fixed bottom-0 left-0 w-full z-40 lg:hidden pb-safe bg-[#010f1f]/95 backdrop-blur-xl border-t border-white/10 shadow-[0_-2px_12px_rgba(0,0,0,0.3)]" id="mobile-bottom-bar">
+    <div class="flex justify-around items-center h-16 px-2">
+      <a href="#hero" class="bottom-bar-link flex flex-col items-center justify-center gap-1 min-w-[50px] h-12 text-tertiary transition-colors" data-target="hero">
+        <span class="material-symbols-outlined text-[22px]">home</span>
+        <span class="font-space text-[10px] font-semibold">Home</span>
+      </a>
+      <a href="#portfolio" class="bottom-bar-link flex flex-col items-center justify-center gap-1 min-w-[50px] h-12 text-on-surface-variant hover:text-white transition-colors" data-target="portfolio">
+        <span class="material-symbols-outlined text-[22px]">grid_view</span>
+        <span class="font-space text-[10px] font-semibold">Works</span>
+      </a>
+      <a href="#services" class="bottom-bar-link flex flex-col items-center justify-center gap-1 min-w-[50px] h-12 text-on-surface-variant hover:text-white transition-colors" data-target="services">
+        <span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+        <span class="font-space text-[10px] font-semibold">Services</span>
+      </a>
+      <a href="#about" class="bottom-bar-link flex flex-col items-center justify-center gap-1 min-w-[50px] h-12 text-on-surface-variant hover:text-white transition-colors" data-target="about">
+        <span class="material-symbols-outlined text-[22px]">person</span>
+        <span class="font-space text-[10px] font-semibold">About</span>
+      </a>
+      <a href="#hire" class="bottom-bar-link flex flex-col items-center justify-center gap-1 min-w-[50px] h-12 text-on-surface-variant hover:text-white transition-colors" data-target="hire">
+        <span class="material-symbols-outlined text-[22px]">send</span>
+        <span class="font-space text-[10px] font-semibold">Hire</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT CONTROLLERS                                   -->
+  <!-- ======================================================== -->
+  <script>
+    // 1. Mobile Drawer Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('mobile-drawer-close');
+    const drawer = document.getElementById('mobile-drawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (menuBtn && closeBtn && drawer) {
+      menuBtn.addEventListener('click', () => {
+        drawer.classList.remove('hidden');
+        drawer.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+
+      const closeDrawer = () => {
+        drawer.classList.add('hidden');
+        drawer.classList.remove('flex');
+        document.body.style.overflow = '';
+      };
+
+      closeBtn.addEventListener('click', closeDrawer);
+      mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
+    }
+
+    // 2. Active Section Tracker for Desktop & Mobile Bottom Bar
+    const sections = ['hero', 'portfolio', 'services', 'about', 'process', 'faq', 'hire'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    const bottomLinks = document.querySelectorAll('.bottom-bar-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollPos = window.scrollY + 200;
+
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = id;
+        }
+      });
+
+      // Update Desktop Nav
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-target') === current) {
+          link.classList.add('text-tertiary', 'font-semibold');
+          link.classList.remove('text-on-surface-variant');
+        } else {
+          link.classList.remove('text-tertiary', 'font-semibold');
+          link.classList.add('text-on-surface-variant');
+        }
+      });
+
+      // Update Mobile Bottom Bar
+      bottomLinks.forEach(link => {
+        if (link.getAttribute('data-target') === current) {
+          link.classList.add('text-tertiary');
+          link.classList.remove('text-on-surface-variant');
+        } else {
+          link.classList.remove('text-tertiary');
+          link.classList.add('text-on-surface-variant');
+        }
+      });
+    }, { passive: true });
+
+    // 3. Three.js 3D Interactive Spatial Mesh (Bug-free & Touch-safe)
+    (function initThreeJS() {
+      const container = document.getElementById('threejs-container');
+      if (!container || typeof THREE === 'undefined') return;
+
+      const getWidth = () => container.clientWidth || 360;
+      const getHeight = () => container.clientHeight || 360;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, getWidth() / getHeight(), 0.1, 1000);
+      camera.position.z = 5.8;
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(getWidth(), getHeight());
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      container.appendChild(renderer.domElement);
+
+      // Lights
+      scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+      
+      const blueLight = new THREE.PointLight(0x3B82F6, 4, 25);
+      blueLight.position.set(4, 3, 4);
+      scene.add(blueLight);
+
+      const cyanLight = new THREE.PointLight(0x22D3EE, 3, 20);
+      cyanLight.position.set(-4, -2, 3);
+      scene.add(cyanLight);
+
+      const purpleLight = new THREE.PointLight(0x6366F1, 2, 15);
+      purpleLight.position.set(0, 4, -2);
+      scene.add(purpleLight);
+
+      // Group
+      const mainGroup = new THREE.Group();
+      scene.add(mainGroup);
+
+      // Torus
+      const torus = new THREE.Mesh(
+        new THREE.TorusGeometry(1.5, 0.26, 24, 64),
+        new THREE.MeshPhongMaterial({
+          color: 0x2563EB,
+          emissive: 0x1D4ED8,
+          emissiveIntensity: 0.3,
+          specular: 0x93C5FD,
+          shininess: 90,
+          transparent: true,
+          opacity: 0.92
+        })
+      );
+      torus.rotation.x = Math.PI / 3;
+      mainGroup.add(torus);
+
+      // Inner Crystal
+      const innerGem = new THREE.Mesh(
+        new THREE.OctahedronGeometry(0.85, 0),
+        new THREE.MeshPhongMaterial({
+          color: 0x0EA5E9,
+          specular: 0x38BDF8,
+          shininess: 100,
+          wireframe: true
+        })
+      );
+      mainGroup.add(innerGem);
+
+      // Satellites
+      const satellites = [];
+      const geometries = [
+        new THREE.BoxGeometry(0.4, 0.4, 0.4),
+        new THREE.SphereGeometry(0.3, 16, 16),
+        new THREE.IcosahedronGeometry(0.35, 0),
+        new THREE.BoxGeometry(0.35, 0.35, 0.35)
+      ];
+      const satColors = [0x3B82F6, 0x60A5FA, 0x22D3EE, 0x818CF8];
+
+      for (let i = 0; i < 6; i++) {
+        const mesh = new THREE.Mesh(
+          geometries[i % geometries.length],
+          new THREE.MeshPhongMaterial({
+            color: satColors[i % satColors.length],
+            specular: 0xffffff,
+            shininess: 80,
+            transparent: true,
+            opacity: 0.85
+          })
+        );
+        const angle = (i / 6) * Math.PI * 2;
+        const radius = 2.3 + (i % 2) * 0.4;
+        mesh.position.set(
+          Math.cos(angle) * radius,
+          Math.sin(angle) * (radius * 0.5) + (Math.sin(i) * 0.4),
+          (i % 2 === 0 ? 1 : -1) * (0.7 + (i % 2) * 0.3)
+        );
+        mesh.userData = {
+          speedX: 0.01 + i * 0.003,
+          speedY: 0.012 + i * 0.002,
+          baseY: mesh.position.y,
+          phase: i * 1.2
+        };
+        mainGroup.add(mesh);
+        satellites.push(mesh);
+      }
+
+      // Dust Particles
+      const pGeo = new THREE.BufferGeometry();
+      const pCount = 80;
+      const pPos = new Float32Array(pCount * 3);
+      for (let i = 0; i < pCount * 3; i += 3) {
+        pPos[i] = (Math.random() - 0.5) * 12;
+        pPos[i + 1] = (Math.random() - 0.5) * 10;
+        pPos[i + 2] = (Math.random() - 0.5) * 8;
+      }
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+      const particles = new THREE.Points(
+        pGeo,
+        new THREE.PointsMaterial({ color: 0x60A5FA, size: 0.045, transparent: true, opacity: 0.6 })
+      );
+      scene.add(particles);
+
+      // Mouse and Touch Interaction
+      let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
+      const onMove = (x, y) => {
+        mouseX = (x / window.innerWidth - 0.5) * 2;
+        mouseY = (y / window.innerHeight - 0.5) * 2;
+      };
+      window.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY), { passive: true });
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+
+      // Resize
+      window.addEventListener('resize', () => {
+        const w = getWidth();
+        const h = getHeight();
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+
+      // Loop
+      const clock = new THREE.Clock();
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsedTime = clock.getElapsedTime();
+        targetX += (mouseX - targetX) * 0.05;
+        targetY += (mouseY - targetY) * 0.05;
+        mainGroup.rotation.y = targetX * 0.4 + elapsedTime * 0.15;
+        mainGroup.rotation.x = -targetY * 0.3 + Math.sin(elapsedTime * 0.5) * 0.1;
+        torus.rotation.z += 0.008;
+        torus.rotation.y += 0.005;
+        innerGem.rotation.x -= 0.015;
+        innerGem.rotation.y -= 0.012;
+        satellites.forEach(item => {
+          item.rotation.x += item.userData.speedX;
+          item.rotation.y += item.userData.speedY;
+          item.position.y = item.userData.baseY + Math.sin(elapsedTime * 1.5 + item.userData.phase) * 0.2;
+        });
+        particles.rotation.y = elapsedTime * 0.03;
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    // 4. Portfolio Filter Logic
+    const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary-container', 'text-white', 'shadow-sm');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary-container', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+        const filter = btn.getAttribute('data-filter');
+        portfolioCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 5. Portfolio Lightbox Logic
+    function openLightbox(title, desc, category, imgSrc) {
+      const modal = document.getElementById('portfolio-lightbox');
+      document.getElementById('lightbox-title').innerText = title;
+      document.getElementById('lightbox-desc').innerText = desc;
+      document.getElementById('lightbox-badge').innerText = category;
+      const img = document.getElementById('lightbox-img');
+      img.src = imgSrc;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('portfolio-lightbox');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('portfolio-lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('portfolio-lightbox')) {
+        closeLightbox();
+      }
+    });
+
+    // 6. Service Pre-select from Matrix Cards
+    function selectService(serviceName) {
+      const checkboxes = document.querySelectorAll('.service-checkbox');
+      checkboxes.forEach(cb => {
+        if (cb.value.toLowerCase().includes(serviceName.toLowerCase()) || serviceName.toLowerCase().includes(cb.value.toLowerCase())) {
+          cb.checked = true;
+        }
+      });
+    }
+
+    // 7. Currency Toggle & Budget Tiers
+    let currentCurrency = 'USD';
+    const budgetContainer = document.getElementById('budget-tiers');
+    const budgets = {
+      USD: ['$300 – $600', '$600 – $1,200', '$1,200 – $2,500', '$2,500+ Enterprise'],
+      BDT: ['৳15k – ৳35k', '৳35k – ৳75k', '৳75k – ৳150k', '৳150k+ Enterprise']
+    };
+
+    function renderBudgetTiers(curr) {
+      budgetContainer.innerHTML = '';
+      budgets[curr].forEach((tier, idx) => {
+        const label = document.createElement('label');
+        label.className = 'cursor-pointer';
+        label.innerHTML = `
+          <input type="radio" name="budget" value="${curr} ${tier}" ${idx === 1 ? 'checked' : ''} class="hidden peer" />
+          <span class="block text-center py-2 px-3 rounded-lg bg-surface-container-lowest border border-white/10 text-on-surface-variant font-space text-xs peer-checked:bg-secondary-container peer-checked:text-white peer-checked:border-secondary-container transition-all">
+            ${tier}
+          </span>
+        `;
+        budgetContainer.appendChild(label);
+      });
+    }
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      const bdtBtn = document.getElementById('curr-bdt');
+      const usdBtn = document.getElementById('curr-usd');
+      if (curr === 'BDT') {
+        bdtBtn.classList.add('bg-primary-container', 'text-white', 'font-semibold');
+        bdtBtn.classList.remove('text-on-surface-variant');
+        usdBtn.classList.remove('bg-primary-container', 'text-white', 'font-semibold');
+        usdBtn.classList.add('text-on-surface-variant');
+      } else {
+        usdBtn.classList.add('bg-primary-container', 'text-white', 'font-semibold');
+        usdBtn.classList.remove('text-on-surface-variant');
+        bdtBtn.classList.remove('bg-primary-container', 'text-white', 'font-semibold');
+        bdtBtn.classList.add('text-on-surface-variant');
+      }
+      renderBudgetTiers(curr);
+    }
+    renderBudgetTiers('USD');
+
+    // 8. FAQ Accordion
+    const faqButtons = document.querySelectorAll('.faq-btn');
+    faqButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+        const isHidden = content.classList.contains('hidden');
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // 9. Form Submission Handler with Mailto & WhatsApp Links
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      const feedback = document.getElementById('form-feedback');
+
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const phone = document.getElementById('form-phone').value;
+      const company = document.getElementById('form-company').value;
+      const details = document.getElementById('form-details').value;
+      const deadline = document.getElementById('form-deadline').value;
+      const reference = document.getElementById('form-reference').value;
+
+      const checkedServices = Array.from(document.querySelectorAll('.service-checkbox:checked')).map(cb => cb.value);
+      const budgetEl = document.querySelector('input[name="budget"]:checked');
+      const budget = budgetEl ? budgetEl.value : 'Not specified';
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Dispatching Request...</span>`;
+
+      const subject = encodeURIComponent(`New Project Inquiry from ${name} [${company || 'Client'}]`);
+      const body = encodeURIComponent(
+        `Hi Rixel Studio,\n\n` +
+        `New client inquiry submitted:\n\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone/WhatsApp: ${phone}\n` +
+        `Company: ${company || 'N/A'}\n` +
+        `Selected Services: ${checkedServices.join(', ') || 'General Inquiry'}\n` +
+        `Budget Range: ${budget}\n` +
+        `Target Deadline: ${deadline || 'Flexible'}\n` +
+        `Reference URL: ${reference || 'None'}\n\n` +
+        `Project Scope & Vision:\n${details}\n`
+      );
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Send Project Request</span><span class="material-symbols-outlined text-[20px]">send</span>`;
+        feedback.classList.remove('hidden', 'text-error');
+        feedback.classList.add('text-tertiary');
+        feedback.innerText = "Opening email dispatch for ourrixelstudio@gmail.com. We respond within 2 hours!";
+        
+        window.location.href = `mailto:ourrixelstudio@gmail.com?subject=${subject}&body=${body}`;
+      }, 600);
+    }
+  </script>
+</body>
+</html>
