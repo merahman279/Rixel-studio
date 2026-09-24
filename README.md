@@ -1,76 +1,163 @@
-# Rixel Studio — Official Portfolio Website
+# Rixel Studio — Portfolio CMS & Lead Management System
 
-Official high-performance portfolio website for **Rixel Studio** (Brand Identity, Motion Graphics & Creative Direction).
+Official, production-grade portfolio and dynamic CMS backend for **Rixel Studio** (Brand Identity, Motion Graphics & Creative Direction). Powered by vanilla HTML5, Tailwind CSS, Three.js 3D interactive spatial mesh, and **Supabase Cloud Backend** (`ap-northeast-1` Tokyo).
 
-![Rixel Studio Preview](logo.png)
-
----
-
-## 🌟 Features (মূল সুবিধাসমূহ)
-- **100% Mobile Responsive:** ডেস্কটপ, ট্যাবলেট ও মোবাইলের জন্য অপ্টিমাইজড লেআউট।
-- **Interactive 3D Spatial Scene:** Three.js চালিত ইন্টারঅ্যাক্টিভ থ্রিডি রিং ও ক্রিস্টাল মডেল (মাউস কার্সার ও মোবাইল টাচে স্মুথলি মুভ করে)।
-- **Curated Selected Works (12 Projects):** ক্যাটাগরি ফিল্টার এবং সম্পূর্ণ ইন্টারঅ্যাক্টিভ **Lightbox Modal** প্রিভিউ।
-- **Services Matrix:** ৫টি মূল সার্ভিস এবং ওয়ান-ক্লিক ফর্ম অটো-সিলেক্ট।
-- **Dual Currency Budget Switcher:** BDT (৳) ও USD ($) কারেন্সি টগল এবং ডাইনামিক বাজেট টায়ার।
-- **Direct Lead Intake Form:** স্বয়ংক্রিয় মেইল ড্রাফটিং (`ourrixelstudio@gmail.com`) এবং ওয়ান-ক্লিক **WhatsApp Chat** ইন্টিগ্রেশন (`+880 1849-697850`)।
-- **Mobile Bottom App Navigation:** মোবাইলে ব্যবহারকারীদের জন্য ফিক্সড অ্যাপ-স্টাইল ন্যাভিগেশন বার।
+![Rixel Studio Logo](logo.png)
 
 ---
 
-## 🛠️ Tech Stack
-- **HTML5 & Semantic Markup**
-- **Tailwind CSS (Obsidian Luminescence Dark Palette)**
-- **Three.js (r125 WebGL Canvas)**
-- **Google Fonts:** Sora, Inter, Space Grotesk & Material Symbols Outlined
+## 🌟 Overview & Key Capabilities
+
+- **Zero-Redesign Guarantee:** 100% preservation of the original *Obsidian Luminescence* visual identity, dark luxury aesthetics, typography (Sora, Space Grotesk, Inter), responsive layouts, and interactive Three.js 3D spatial scene.
+- **Dedicated Admin Portal:**
+  - `/admin/login` — Clean, secured login page powered by **Supabase Auth** with session persistence, password reveal, error alerts, and route guards.
+  - `/admin/dashboard` — Complete CMS control center for:
+    - **Dashboard Overview Metrics:** Total Portfolio Projects, Total Leads, New Inquiries, Site Operational Status.
+    - **Founder Profile Photo:** Live upload to Supabase `profile-images` storage bucket with immediate public sync.
+    - **Hero Section Content:** Main headline, gradient highlight, suffix, and value proposition statement.
+    - **About & Statistics:** Founder bio and live counters (Years Experience, Projects Completed, Corporate Clients, On-Time Delivery).
+    - **Services Matrix:** Manage all 6 creative offerings with descriptions and highlight tags.
+    - **Portfolio Showcase CRUD:** Create, edit, delete, and toggle status of all projects, with direct file uploads to `portfolio-images` bucket.
+    - **Contact Information & Social Links:** Live update WhatsApp number, email, studio location, and social media handles.
+    - **Site Settings & Meta:** SEO meta title, description, maintenance mode toggle.
+  - `/admin/inquiries` — Dedicated Lead Management CRM:
+    - Real-time search across Name, Email, Phone, and Company.
+    - Multi-filter by Status (`new`, `in_review`, `contacted`, `converted`, `archived`) and Requested Service.
+    - Sorting by Newest or Oldest submission.
+    - In-depth detail modal with client requirements, budget tiers, deadlines, and project links.
+    - Quick actions: One-click **WhatsApp** chat launch, **Mailto** compose, and clipboard copy.
+    - Status lifecycle management and lead deletion with confirmation.
+- **Database-Backed Lead Generation Form:**
+  - Submits client requests directly to Supabase `inquiries` table.
+  - Dual anti-spam protection: hidden bot honeypot field + minimum submission duration check.
+  - Strict input validation with email regex and required field checks.
+  - Smooth loading feedback, success confirmation, and automatic form reset.
+- **Fail-Safe Resilience:**
+  - If Supabase is unconfigured or temporarily unreachable, the public portfolio seamlessly falls back to static default HTML content without breaking or displaying blank sections.
 
 ---
 
-## 🚀 GitHub-এ আপলোড এবং ফ্রি হোস্টিং করার নিয়ম (GitHub Pages Guide)
+## 🔐 Security & Architecture Rules
 
-আপনি গিট না জেনেও ব্রাউজার দিয়ে খুব সহজেই এটি গিটহাবে আপলোড করে লাইভ ফ্রি হোস্ট করতে পারেন:
-
-### ধাপ ১: GitHub Repository তৈরি করুন
-1. [github.com](https://github.com)-এ যান এবং আপনার অ্যাকাউন্টে লগইন করুন।
-2. উপরে ডানপাশে থাকা **`+`** আইকনে ক্লিক করে **New repository** সিলেক্ট করুন।
-3. **Repository name** দিন (যেমন: `rixel-studio` অথবা আপনার নাম অনুযায়ী `portfolio`)।
-4. রিপোজিটরিটি **Public** সিলেক্ট করুন।
-5. নিচে **Create repository** বাটনে ক্লিক করুন।
-
----
-
-### ধাপ ২: ফাইল আপলোড করুন (Drag & Drop)
-1. নতুন রিপোজিটরি খোলার পর পেজের মাঝখানে **"uploading an existing file"** লিংক দেখতে পাবেন, সেখানে ক্লিক করুন।
-2. এই ফোল্ডার থেকে নিচের ফাইলগুলো টেনে এনে ব্রাউজারে ছেড়ে দিন (Drag & Drop):
-   - `index.html`
-   - `logo.png`
-   - `200 by 200.png`
-   - `404.html`
-   - `.nojekyll`
-   - `README.md`
-3. পেজের নিচে **Commit changes** বাটনে ক্লিক করুন। ফাইলগুলো আপলোড হয়ে যাবে।
+1. **Client Anon Key Only:** The public frontend and admin dashboard only require the Supabase publishable `anon` key.
+2. **Never Expose Service Role Key:** The `service_role` secret key and database master passwords are never included in frontend code, committed to Git, or exposed in public bundles.
+3. **Strict Row-Level Security (RLS) Enforced:**
+   - **`inquiries` table:** Public visitors can only `INSERT` new leads. Only authenticated admin users can `SELECT`, `UPDATE`, or `DELETE`.
+   - **CMS tables (`site_settings`, `hero_content`, `about_content`, `services`, `portfolio_projects`, `contact_info`, `social_links`):** Public visitors can only `SELECT` published records. Only authenticated admin users have full write access (`INSERT`, `UPDATE`, `DELETE`).
+   - **Storage buckets (`profile-images`, `portfolio-images`, `site-assets`):** Public can view/download images. Only authenticated admin users can upload or delete.
+4. **Environment Variables:** Credentials are kept in `.env` / `env.js` (excluded by `.gitignore`).
 
 ---
 
-### ধাপ ৩: GitHub Pages দিয়ে ওয়েবসাইট লাইভ করুন (১ মিনিটে ফ্রি ডোমেইন)
-1. আপনার রিপোজিটরির উপরের মেনু থেকে **Settings** ট্যাবে যান।
-2. বাম পাশের মেনু থেকে **Pages** অপশনে ক্লিক করুন।
-3. **Branch** ড্রপডাউনে `None`-এর জায়গায় **`main`** সিলেক্ট করুন।
-4. ফোল্ডার হিসেবে `/(root)` রেখে পাশে থাকা **Save** বাটনে ক্লিক করুন।
-5. ১ থেকে ২ মিনিট অপেক্ষা করে পেজটি রিফ্রেশ দিন।
-6. উপরে আপনার ওয়েবসাইটের লাইভ লিংক দেখতে পাবেন:
-   👉 **`https://<your-username>.github.io/<repository-name>/`**
+## ⚡ Supabase Setup Guide (Step-by-Step)
+
+### Step 1: Execute Database Schema in Supabase
+1. Log into your Supabase Dashboard:  
+   👉 [https://supabase.com/dashboard/project/telynaezwbibshzckokh](https://supabase.com/dashboard/project/telynaezwbibshzckokh)
+2. From the left sidebar, click on **SQL Editor**.
+3. Click **New query**.
+4. Copy the entire contents of **`supabase-schema.sql`** from this project, paste it into the editor, and click **Run**.
+5. This script automatically:
+   - Creates all tables: `inquiries`, `site_settings`, `hero_content`, `about_content`, `services`, `portfolio_projects`, `contact_info`, `social_links`.
+   - Creates public Storage buckets: `profile-images`, `portfolio-images`, `site-assets`.
+   - Configures all Row-Level Security (RLS) policies.
+   - Populates initial seed data matching 100% of your existing portfolio content and projects.
 
 ---
 
-## 📁 প্রজেক্ট ফাইল স্ট্রাকচার
+### Step 2: Create Your First Admin User
+1. In the Supabase Dashboard, click on **Authentication** (User icon in left sidebar).
+2. Go to the **Users** tab.
+3. Click the **Add user** button -> **Create user**.
+4. Enter your admin email (e.g. `merahman279@gmail.com`) and choose a strong password.
+5. Set **Auto Confirm User?** to **ON** (checked).
+6. Click **Create user**. You can now log into `/admin/login` using these credentials.
+
+---
+
+### Step 3: Configure Supabase Credentials
+
+Your Supabase Project URL is:  
+`https://telynaezwbibshzckokh.supabase.co`
+
+To get your Anon Key:
+1. In Supabase Dashboard, go to **Project Settings** (gear icon) -> **API**.
+2. Under **Project API keys**, copy the **`anon` `public`** key.
+
+You can configure the key in either of two ways:
+- **Option A (In-Browser Admin Setup):**  
+  Open `/admin/login` in your browser. Click **Supabase Connection Settings** at the bottom of the card, paste your `anon` key, and click **Save Settings**.
+- **Option B (`env.js` for Local Development):**  
+  Duplicate `env.example.js` as `env.js` in the project root:
+  ```javascript
+  window.__ENV__ = {
+    SUPABASE_URL: "https://telynaezwbibshzckokh.supabase.co",
+    SUPABASE_ANON_KEY: "your-actual-anon-key-here"
+  };
+  ```
+
+---
+
+## 🚀 Deployment Guide
+
+### Vercel Deployment (Recommended)
+
+1. Push your repository to **GitHub**.
+2. Log into [vercel.com](https://vercel.com) and click **Add New...** -> **Project**.
+3. Import your `rixel-studio` repository.
+4. In **Project Settings** -> **Environment Variables**, add:
+   - `VITE_SUPABASE_URL` = `https://telynaezwbibshzckokh.supabase.co`
+   - `VITE_SUPABASE_ANON_KEY` = `your-actual-anon-key-here`
+5. Click **Deploy**.
+6. The included `vercel.json` automatically handles:
+   - Clean URLs (no `.html` extension needed)
+   - Route rewrites for `/admin/login`, `/admin/dashboard`, `/admin/inquiries`
+   - Security headers (`X-Content-Type-Options`, `X-Frame-Options`, `X-XSS-Protection`)
+
+---
+
+### Accessing the Admin System
+
+- **Direct URL:** Visit `https://your-domain.vercel.app/admin/login`
+- **Footer Link:** Click the **Studio Admin** lock icon in the website footer.
+- **Keyboard Shortcut:** Press `Ctrl + Shift + A` (or `Cmd + Shift + A` on Mac) anywhere on the public site to quickly open the admin login.
+
+---
+
+## 📧 Server-Side Email Notifications (Recommended Setup)
+
+To receive real-time email notifications whenever a client submits a new lead, **do not call email APIs from the frontend** (to prevent leaking API keys).
+
+Use a **Supabase Database Webhook** or **Supabase Edge Function** with Resend:
+1. Go to Supabase Dashboard -> **Database** -> **Webhooks**.
+2. Create a webhook triggered on `INSERT` on the `inquiries` table.
+3. Forward the webhook payload to a serverless function or services like **Resend** or **Zapier** / **Make** to send an instant notification to your inbox.
+
+---
+
+## 📁 Project Structure
+
 ```text
-├── index.html       # মূল ওয়েবসাইট পেজ
-├── logo.png         # ক্রিস্প রিক্সেল স্টুডিও লোগো
-├── 200 by 200.png   # অরিজিনাল লোগো ফাইল
-├── 404.html         # কাস্টম ব্র্যান্ডেড 404 পেজ
-├── .nojekyll        # গিটহাব পেজেস বাইপাস ফাইল
-├── .gitignore       # গিট ইগনোর কনফিগ
-└── README.md        # ডিরেক্টরি পরিচিতি ও গাইড
+├── index.html                   # Main public portfolio (3D spatial scene, portfolio, intake form)
+├── supabase-client.js           # Supabase SDK integration (Auth, Inquiries, CMS, Storage)
+├── supabase-schema.sql          # Complete SQL schema, RLS policies, storage buckets & seed data
+├── vercel.json                  # Vercel routing rewrites, cleanUrls, and security headers
+├── admin/
+│   ├── index.html               # Admin route dispatcher (checks session -> dashboard or login)
+│   ├── admin.js                 # Admin utilities, route guards, toast notifications, path resolver
+│   ├── login/
+│   │   └── index.html           # Dedicated Admin Login portal
+│   ├── dashboard/
+│   │   └── index.html           # Dedicated Admin CMS Dashboard (Hero, Profile, Works, Services, etc.)
+│   └── inquiries/
+│       └── index.html           # Dedicated Lead Management CRM (Search, Filter, WhatsApp, Status)
+├── logo.png                     # Official Rixel Studio high-res emblem
+├── 200 by 200.png               # Square logo asset
+├── 404.html                     # Custom 404 error page
+├── env.example.js               # Local client configuration template (git-ignored)
+├── .env.example                 # Environment variables template
+├── .gitignore                   # Excludes env.js, .env, and sensitive files
+└── README.md                    # Project documentation
 ```
 
 ---

@@ -16,6 +16,13 @@
   <!-- Three.js CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
   
+  <!-- Supabase JS Client v2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Optional Local Environment (ignored in git) -->
+  <script src="env.js" onerror="/* env.js is optional */"></script>
+  <!-- Rixel Studio Supabase Integration Layer -->
+  <script src="supabase-client.js"></script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
@@ -274,12 +281,12 @@
             </div>
 
             <!-- Main Heading -->
-            <h1 class="font-sora text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15]">
-              Brand Identities That <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">Get Remembered.</span> Motion That Converts.
+            <h1 class="font-sora text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15]" id="hero-headline">
+              <span id="hero-title-prefix">Brand Identities That </span><span id="hero-title-highlight" class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">Get Remembered.</span><span id="hero-title-suffix"> Motion That Converts.</span>
             </h1>
 
             <!-- Subtitle -->
-            <p class="font-inter text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            <p class="font-inter text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed" id="hero-subtitle">
               Freelance Graphic Designer & Video Editor with 4+ years crafting visual identities, high-impact social creatives, and cinematic motion for forward-thinking startups, corporate leaders, and global institutions.
             </p>
 
@@ -783,7 +790,7 @@
             <div class="relative w-full max-w-[400px]">
               <div class="absolute -inset-2 bg-gradient-to-r from-primary via-tertiary to-secondary opacity-30 blur-2xl rounded-3xl"></div>
               <div class="relative rounded-3xl overflow-hidden bg-surface-container border border-white/10 shadow-2xl">
-                <img class="w-full h-[420px] sm:h-[480px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZI-bkAJSgig4RUTgExitxh5DIuwkYDHWV1m7y9UjXbs8yiBh0AuyUEGOrSr2B8rLHogm7DhtSzeah2rN3RbzE3GxOewUCzCiq6rkt-V-QbMvmy764gFQkcn6lAbRgesSR7Ql7pETYOWO4VfpY1T11m12myzfS3UraWEnNgdw_9DyIHO1BKbLbVyYyhy6AgVX7rk01CW6x9mu2g710RKxHpeR26N6HPu-HIm_oWzwqhJ89ZplssBijInKjK21koHsdENnq6lNN5N51qtI" alt="Rixel Studio Lead Designer">
+                <img class="w-full h-[420px] sm:h-[480px] object-cover" id="founder-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZI-bkAJSgig4RUTgExitxh5DIuwkYDHWV1m7y9UjXbs8yiBh0AuyUEGOrSr2B8rLHogm7DhtSzeah2rN3RbzE3GxOewUCzCiq6rkt-V-QbMvmy764gFQkcn6lAbRgesSR7Ql7pETYOWO4VfpY1T11m12myzfS3UraWEnNgdw_9DyIHO1BKbLbVyYyhy6AgVX7rk01CW6x9mu2g710RKxHpeR26N6HPu-HIm_oWzwqhJ89ZplssBijInKjK21koHsdENnq6lNN5N51qtI" alt="Rixel Studio Lead Designer">
                 
                 <!-- Status Badge -->
                 <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-surface-container-lowest/80 border border-white/10 backdrop-blur-md shadow-md flex items-center gap-2">
@@ -819,19 +826,19 @@
             <!-- 4 Stats Counters Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
               <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
-                <span class="font-sora text-3xl sm:text-4xl text-primary font-bold">4+</span>
+                <span class="font-sora text-3xl sm:text-4xl text-primary font-bold" id="stat-years">4+</span>
                 <span class="font-inter text-xs text-on-surface-variant mt-1">Years Active</span>
               </div>
               <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
-                <span class="font-sora text-3xl sm:text-4xl text-tertiary font-bold">120+</span>
+                <span class="font-sora text-3xl sm:text-4xl text-tertiary font-bold" id="stat-works">120+</span>
                 <span class="font-inter text-xs text-on-surface-variant mt-1">Completed Works</span>
               </div>
               <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
-                <span class="font-sora text-3xl sm:text-4xl text-secondary font-bold">45+</span>
+                <span class="font-sora text-3xl sm:text-4xl text-secondary font-bold" id="stat-clients">45+</span>
                 <span class="font-inter text-xs text-on-surface-variant mt-1">Corporate Clients</span>
               </div>
               <div class="flex flex-col p-4 rounded-xl bg-surface-container border border-white/5 shadow-sm text-center sm:text-left">
-                <span class="font-sora text-3xl sm:text-4xl text-white font-bold">99%</span>
+                <span class="font-sora text-3xl sm:text-4xl text-white font-bold" id="stat-ontime">99%</span>
                 <span class="font-inter text-xs text-on-surface-variant mt-1">On-Time Delivery</span>
               </div>
             </div>
@@ -1122,7 +1129,8 @@
           <div class="lg:col-span-7 p-6 sm:p-10 rounded-3xl bg-surface-container border border-white/10 shadow-xl">
             <form class="flex flex-col gap-5" id="project-intake-form" onsubmit="handleFormSubmit(event)">
               
-              <!-- Contact Name & Email -->
+              <!-- Anti-Spam Honeypot (Hidden from humans) -->
+              <input type="text" name="_studio_honey" id="form-honeypot" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="flex flex-col gap-1.5">
                   <label class="font-space text-xs text-white uppercase tracking-wider font-medium">Full Name *</label>
@@ -1402,7 +1410,14 @@
       <!-- Copyright -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs font-inter text-outline">
         <p>© 2025 Rixel Studio. All rights reserved. Crafted for digital immersion.</p>
-        <p class="font-space uppercase tracking-widest text-[11px]">Dhaka • Worldwide</p>
+        <div class="flex items-center gap-4">
+          <p class="font-space uppercase tracking-widest text-[11px]">Dhaka • Worldwide</p>
+          <span class="text-white/20">•</span>
+          <a href="/admin/login" class="font-space text-[11px] text-outline/60 hover:text-tertiary transition-colors flex items-center gap-1 cursor-pointer" title="Studio Admin Portal">
+            <span class="material-symbols-outlined text-[14px]">lock</span>
+            <span>Studio Admin</span>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1789,51 +1804,254 @@
       });
     });
 
-    // 9. Form Submission Handler with Mailto & WhatsApp Links
-    function handleFormSubmit(e) {
+    // Form load timestamp for anti-spam timing detection
+    const formRenderTime = Date.now();
+
+    // 9. Database-Backed Form Submission with Validation & Anti-Spam
+    async function handleFormSubmit(e) {
       e.preventDefault();
       const submitBtn = document.getElementById('submit-btn');
       const feedback = document.getElementById('form-feedback');
 
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const phone = document.getElementById('form-phone').value;
-      const company = document.getElementById('form-company').value;
-      const details = document.getElementById('form-details').value;
+      // Anti-spam check 1: Honeypot field must be empty
+      const honeypot = document.getElementById('form-honeypot');
+      if (honeypot && honeypot.value.trim() !== '') {
+        console.warn('Bot detected via honeypot.');
+        return;
+      }
+
+      // Anti-spam check 2: Minimum submission time (800ms)
+      if (Date.now() - formRenderTime < 800) {
+        console.warn('Submission too fast.');
+        return;
+      }
+
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const phone = document.getElementById('form-phone').value.trim();
+      const company = document.getElementById('form-company').value.trim();
+      const details = document.getElementById('form-details').value.trim();
       const deadline = document.getElementById('form-deadline').value;
-      const reference = document.getElementById('form-reference').value;
+      const reference = document.getElementById('form-reference').value.trim();
 
       const checkedServices = Array.from(document.querySelectorAll('.service-checkbox:checked')).map(cb => cb.value);
       const budgetEl = document.querySelector('input[name="budget"]:checked');
       const budget = budgetEl ? budgetEl.value : 'Not specified';
 
+      // Validation 1: Name required
+      if (!name) {
+        showFormFeedback("Please enter your full name.", "error");
+        document.getElementById('form-name').focus();
+        return;
+      }
+
+      // Validation 2: Email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        showFormFeedback("Please provide a valid email address.", "error");
+        document.getElementById('form-email').focus();
+        return;
+      }
+
+      // Validation 3: Phone format
+      if (!phone || phone.replace(/[^0-9]/g, '').length < 6) {
+        showFormFeedback("Please enter a valid phone or WhatsApp number.", "error");
+        document.getElementById('form-phone').focus();
+        return;
+      }
+
+      // Validation 4: Services selection
+      if (checkedServices.length === 0) {
+        showFormFeedback("Please select at least one service required.", "error");
+        return;
+      }
+
+      // Validation 5: Message required
+      if (!details) {
+        showFormFeedback("Please describe your project scope & objectives.", "error");
+        document.getElementById('form-details').focus();
+        return;
+      }
+
+      // UI Loading state
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Dispatching Request...</span>`;
+      submitBtn.innerHTML = `<span>Sending...</span>`;
+      feedback.classList.add('hidden');
 
-      const subject = encodeURIComponent(`New Project Inquiry from ${name} [${company || 'Client'}]`);
-      const body = encodeURIComponent(
-        `Hi Rixel Studio,\n\n` +
-        `New client inquiry submitted:\n\n` +
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Phone/WhatsApp: ${phone}\n` +
-        `Company: ${company || 'N/A'}\n` +
-        `Selected Services: ${checkedServices.join(', ') || 'General Inquiry'}\n` +
-        `Budget Range: ${budget}\n` +
-        `Target Deadline: ${deadline || 'Flexible'}\n` +
-        `Reference URL: ${reference || 'None'}\n\n` +
-        `Project Scope & Vision:\n${details}\n`
-      );
+      try {
+        if (!window.RixelSupabase || !window.RixelSupabase.isConfigured()) {
+          throw new Error("Supabase is not configured.");
+        }
 
-      setTimeout(() => {
+        const result = await window.RixelSupabase.submitInquiry({
+          name,
+          email,
+          phone,
+          company,
+          service: checkedServices.join(', '),
+          budget,
+          deadline,
+          reference_url: reference,
+          message: details
+        });
+
+        if (result && result.success) {
+          submitBtn.innerHTML = `<span>Submitted</span><span class="material-symbols-outlined text-[20px]">check_circle</span>`;
+          showFormFeedback("Thanks! Your inquiry has been submitted successfully. I'll get back to you soon.", "success");
+          document.getElementById('project-intake-form').reset();
+          renderBudgetTiers(currentCurrency);
+
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<span>Send Project Request</span><span class="material-symbols-outlined text-[20px]">send</span>`;
+          }, 4000);
+        } else {
+          throw new Error("Submission not acknowledged");
+        }
+
+      } catch (err) {
+        console.warn('[Rixel Studio] Form error:', err);
         submitBtn.disabled = false;
         submitBtn.innerHTML = `<span>Send Project Request</span><span class="material-symbols-outlined text-[20px]">send</span>`;
-        feedback.classList.remove('hidden', 'text-error');
+        showFormFeedback("Something went wrong. Please try again or contact me directly.", "error");
+      }
+    }
+
+    function showFormFeedback(msg, type = 'info') {
+      const feedback = document.getElementById('form-feedback');
+      feedback.classList.remove('hidden', 'text-error', 'text-tertiary', 'text-secondary');
+      if (type === 'error') {
+        feedback.classList.add('text-error');
+      } else {
         feedback.classList.add('text-tertiary');
-        feedback.innerText = "Opening email dispatch for ourrixelstudio@gmail.com. We respond within 2 hours!";
-        
-        window.location.href = `mailto:ourrixelstudio@gmail.com?subject=${subject}&body=${body}`;
-      }, 600);
+      }
+      feedback.innerText = msg;
+    }
+
+    // ========================================================================
+    // 10. SUPABASE SITE HYDRATION (CMS & PORTFOLIO)
+    // ========================================================================
+    async function hydrateSiteFromSupabase() {
+      if (!window.RixelSupabase || !window.RixelSupabase.isConfigured()) return;
+
+      try {
+        // 1. Site Settings
+        const settings = await window.RixelSupabase.getSiteSettings();
+        if (settings) {
+          if (settings.site_title) document.title = settings.site_title;
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc && settings.meta_description) metaDesc.setAttribute('content', settings.meta_description);
+        }
+
+        // 2. Hero Content
+        const hero = await window.RixelSupabase.getHeroContent();
+        if (hero) {
+          if (hero.heading && document.getElementById('hero-title-prefix')) {
+            document.getElementById('hero-title-prefix').innerText = hero.heading;
+          }
+          if (hero.heading_highlight && document.getElementById('hero-title-highlight')) {
+            document.getElementById('hero-title-highlight').innerText = hero.heading_highlight;
+          }
+          if (hero.heading_suffix && document.getElementById('hero-title-suffix')) {
+            document.getElementById('hero-title-suffix').innerText = hero.heading_suffix;
+          }
+          if (hero.short_description && document.getElementById('hero-subtitle')) {
+            document.getElementById('hero-subtitle').innerText = hero.short_description;
+          }
+        }
+
+        // 3. About Content & Profile Image
+        const about = await window.RixelSupabase.getAboutContent();
+        if (about) {
+          if (about.profile_image_url && document.getElementById('founder-photo')) {
+            document.getElementById('founder-photo').src = about.profile_image_url;
+          }
+          if (about.experience_years && document.getElementById('stat-years')) {
+            document.getElementById('stat-years').innerText = about.experience_years;
+          }
+          if (about.completed_works && document.getElementById('stat-works')) {
+            document.getElementById('stat-works').innerText = about.completed_works;
+          }
+          if (about.corporate_clients && document.getElementById('stat-clients')) {
+            document.getElementById('stat-clients').innerText = about.corporate_clients;
+          }
+          if (about.ontime_delivery && document.getElementById('stat-ontime')) {
+            document.getElementById('stat-ontime').innerText = about.ontime_delivery;
+          }
+        }
+
+        // 4. Portfolio Projects
+        const projects = await window.RixelSupabase.getPortfolioProjects('all', true);
+        if (projects && projects.length > 0) {
+          const grid = document.getElementById('portfolio-grid');
+          if (grid) {
+            grid.innerHTML = projects.map(p => {
+              const catClass = (p.category || '').toLowerCase().includes('brand') ? 'brand' :
+                               (p.category || '').toLowerCase().includes('social') ? 'social' :
+                               (p.category || '').toLowerCase().includes('print') ? 'print' :
+                               (p.category || '').toLowerCase().includes('motion') ? 'motion' :
+                               (p.category || '').toLowerCase().includes('video') ? 'video' : 'brand';
+              return `
+                <div class="portfolio-card group relative aspect-square rounded-2xl bg-surface-container overflow-hidden shadow-lg cursor-pointer border border-white/5 hover:border-tertiary/40 transition-all duration-300" data-category="${catClass}" onclick="openLightbox('${(p.title || '').replace(/'/g, "\\'")}', '${(p.description || '').replace(/'/g, "\\'")}', '${(p.category || '').replace(/'/g, "\\'")}', '${p.image_url}')">
+                  <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="${p.image_url}" alt="${p.title}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200'">
+                  <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                  <div class="absolute top-4 left-4">
+                    <span class="px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-white font-space text-[10px] uppercase font-semibold">${p.category}</span>
+                  </div>
+                  <div class="absolute bottom-4 left-4 right-4 flex flex-col gap-1 transition-transform duration-300 group-hover:-translate-y-1">
+                    <h3 class="font-sora text-base sm:text-lg font-bold text-white">${p.title}</h3>
+                    <p class="font-inter text-xs sm:text-sm text-on-surface-variant line-clamp-2">${p.description || ''}</p>
+                  </div>
+                </div>
+              `;
+            }).join('');
+
+            const allBtn = document.querySelector('.portfolio-filter-btn[data-filter="all"]');
+            if (allBtn) allBtn.innerText = `All Works (${projects.length})`;
+          }
+        }
+
+        // 5. Contact Info
+        const contact = await window.RixelSupabase.getContactInfo();
+        if (contact && contact.whatsapp_number) {
+          const cleanWa = contact.whatsapp_number.replace(/[^0-9]/g, '');
+          document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.href = `https://wa.me/${cleanWa}?text=Hello%20Rixel%20Studio,%20I'm%20ready%20to%20discuss%20a%20project.`;
+          });
+        }
+      } catch (e) {
+        console.warn('[Rixel Studio] Hydration notice:', e);
+      }
+    }
+
+    // Auto-run hydration on load
+    window.addEventListener('DOMContentLoaded', () => {
+      hydrateSiteFromSupabase();
+    });
+
+    // ========================================================================
+    // 11. STUDIO ADMIN PORTAL ENTRY
+    // ========================================================================
+    function openAdminPortal() {
+      if (window.location.protocol === 'file:') {
+        window.location.href = 'admin/login/index.html';
+      } else {
+        window.location.href = '/admin/login';
+      }
+    }
+
+    // Keyboard shortcut: Ctrl + Shift + A
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'a' || e.key === 'A')) {
+        e.preventDefault();
+        openAdminPortal();
+      }
+    });
+
+    // Support file:// relative link for footer Studio Admin button
+    if (window.location.protocol === 'file:') {
+      const adminLink = document.querySelector('a[href="/admin/login"]');
+      if (adminLink) adminLink.href = 'admin/login/index.html';
     }
   </script>
 </body>

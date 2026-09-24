@@ -11,5 +11,11 @@ desktop.ini
 .vscode/
 .idea/
 
-# Archives (optional, if you want only web source files on git)
+# Environment Variables & Private Credentials
+.env
+.env.local
+.env.*.local
+env.js
+
+# Archives (optional)
 # *.zip
