@@ -85,12 +85,12 @@ To get your Anon Key:
 2. Under **Project API keys**, copy the **`anon` `public`** key.
 
 You can configure the key in either of two ways:
-- **Option A (In-Browser Admin Setup):**  
-  Open `/admin/login` in your browser. Click **Supabase Connection Settings** at the bottom of the card, paste your `anon` key, and click **Save Settings**.
-- **Option B (`env.js` for Local Development):**  
-  Duplicate `env.example.js` as `env.js` in the project root:
+- **Option A (In-Browser Admin Setup — Recommended):**  
+  Open `/admin/login` on your deployed Vercel site or local environment. Click **Supabase Connection Settings** at the bottom of the login card, paste your `anon` key, and click **Save & Connect**. This safely verifies and stores the key in your browser.
+- **Option B (`env.js` Configuration):**  
+  You can also paste your `anon` key directly into `env.js`:
   ```javascript
-  window.__ENV__ = {
+  window.ENV = {
     SUPABASE_URL: "https://telynaezwbibshzckokh.supabase.co",
     SUPABASE_ANON_KEY: "your-actual-anon-key-here"
   };

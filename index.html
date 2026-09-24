@@ -18,7 +18,13 @@
   
   <!-- Supabase JS Client v2 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- Optional Local Environment (ignored in git) -->
+  <!-- Public Client Environment Configuration -->
+  <script>
+    window.ENV = window.ENV || {
+      SUPABASE_URL: "https://telynaezwbibshzckokh.supabase.co",
+      SUPABASE_ANON_KEY: ""
+    };
+  </script>
   <script src="env.js" onerror="/* env.js is optional */"></script>
   <!-- Rixel Studio Supabase Integration Layer -->
   <script src="supabase-client.js"></script>

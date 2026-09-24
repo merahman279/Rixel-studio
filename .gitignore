@@ -11,11 +11,12 @@ desktop.ini
 .vscode/
 .idea/
 
-# Environment Variables & Private Credentials
+# Environment Variables & Private Credentials (Never commit secret keys)
 .env
 .env.local
 .env.*.local
-env.js
+*.secret
+
 
 # Archives (optional)
 # *.zip

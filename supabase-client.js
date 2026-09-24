@@ -31,33 +31,52 @@
     }
 
     /**
+     * Safe key and URL validation helpers
+     */
+    static isValidKey(key) {
+      if (!key || typeof key !== 'string') return false;
+      const k = key.trim();
+      if (!k || k.startsWith('YOUR_') || k.startsWith('PASTE_') || k.includes('PLACEHOLDER')) {
+        return false;
+      }
+      return k.length > 20;
+    }
+
+    static isValidUrl(url) {
+      if (!url || typeof url !== 'string') return false;
+      const u = url.trim();
+      return u.startsWith('http://') || u.startsWith('https://');
+    }
+
+    /**
      * Resolves configuration and initializes Supabase client
      */
     init() {
-      // 1. Check window.ENV (loaded from env.js if present)
-      const envUrl = window.ENV && window.ENV.SUPABASE_URL ? window.ENV.SUPABASE_URL.trim() : '';
-      const envAnonKey = window.ENV && window.ENV.SUPABASE_ANON_KEY ? window.ENV.SUPABASE_ANON_KEY.trim() : '';
-
-      // 2. Check Vite / meta env if available in bundlers
-      let viteUrl = '';
-      let viteKey = '';
-      try {
-        if (typeof import.meta !== 'undefined' && import.meta.env) {
-          viteUrl = import.meta.env.VITE_SUPABASE_URL || '';
-          viteKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || '';
-        }
-      } catch (e) {}
-
-      // 3. Check localStorage (allows admin to configure keys directly in browser)
+      // 1. Resolve Project URL
+      // Check localStorage first, then window.ENV, window.__ENV__, or fallback to official studio URL
       const localUrl = localStorage.getItem('rixel_supabase_url');
-      const localAnonKey = localStorage.getItem('rixel_supabase_anon_key');
+      const envUrl = (window.ENV && window.ENV.SUPABASE_URL) || (window.__ENV__ && window.__ENV__.SUPABASE_URL) || '';
 
-      this.supabaseUrl = viteUrl || envUrl || localUrl || DEFAULT_SUPABASE_URL;
-      
-      const candidateKey = viteKey || envAnonKey || localAnonKey || '';
-      this.supabaseAnonKey = (candidateKey && !candidateKey.startsWith('YOUR_SUPABASE') && !candidateKey.startsWith('PASTE_YOUR'))
-        ? candidateKey.trim()
-        : '';
+      this.supabaseUrl = (RixelSupabaseService.isValidUrl(localUrl)
+        ? localUrl.trim()
+        : (RixelSupabaseService.isValidUrl(envUrl) ? envUrl.trim() : DEFAULT_SUPABASE_URL));
+
+      // 2. Resolve Publishable Anon Key
+      // Priority:
+      // A. localStorage (explicitly saved by user via Save & Connect in admin UI)
+      // B. window.ENV.SUPABASE_ANON_KEY (from env.js)
+      // C. window.__ENV__.SUPABASE_ANON_KEY
+      const localAnonKey = localStorage.getItem('rixel_supabase_anon_key');
+      const envAnonKey = (window.ENV && window.ENV.SUPABASE_ANON_KEY) || (window.__ENV__ && window.__ENV__.SUPABASE_ANON_KEY) || '';
+
+      let candidateKey = '';
+      if (RixelSupabaseService.isValidKey(localAnonKey)) {
+        candidateKey = localAnonKey.trim();
+      } else if (RixelSupabaseService.isValidKey(envAnonKey)) {
+        candidateKey = envAnonKey.trim();
+      }
+
+      this.supabaseAnonKey = candidateKey;
 
       if (this.supabaseUrl && this.supabaseAnonKey && window.supabase && typeof window.supabase.createClient === 'function') {
         try {
@@ -90,8 +109,9 @@
           console.error('[Rixel Studio] Client initialization error:', e);
         }
       } else {
+        this.client = null;
         if (!this.supabaseAnonKey) {
-          console.info('[Rixel Studio] Running with public fallback data. Configure Anon key via /admin/login or env.js for live CMS sync.');
+          console.info('[Rixel Studio] Supabase Anon key not yet configured. Operating in public fallback mode. Enter key via /admin/login to connect.');
         }
       }
     }
@@ -101,8 +121,12 @@
     }
 
     saveConfig(url, anonKey) {
-      if (url) localStorage.setItem('rixel_supabase_url', url.trim());
-      if (anonKey) localStorage.setItem('rixel_supabase_anon_key', anonKey.trim());
+      if (url && RixelSupabaseService.isValidUrl(url)) {
+        localStorage.setItem('rixel_supabase_url', url.trim());
+      }
+      if (anonKey && RixelSupabaseService.isValidKey(anonKey)) {
+        localStorage.setItem('rixel_supabase_anon_key', anonKey.trim());
+      }
       this.init();
       return this.isConfigured();
     }
